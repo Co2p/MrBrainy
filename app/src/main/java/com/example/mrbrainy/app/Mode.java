@@ -6,7 +6,7 @@ public class Mode {
 	private int faultMode = 0;
 	private int faultQ;
 	public int ENH = 0;
-
+	
 	//max �r hur m�nga sv�righetsgrader det finns (b�rjar p� 0)
 	//och q �r hur m�nga fr�gor som beh�vs besvaras r�tt f�r att
 	//det ska g� �ver till n�sta sv�righetsgrad

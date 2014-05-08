@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 
-//hej
-
 
 public class BrainGame extends ActionBarActivity {
 
@@ -19,9 +17,6 @@ public class BrainGame extends ActionBarActivity {
     private RadioButton  AnswerButton;
     private Button btnDisplay;
     private int pageNumber = 1;
-
-    //HEJ!!!!
-    //TJABBA TJENA HALLÅ
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
