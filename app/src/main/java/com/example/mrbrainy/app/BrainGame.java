@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 
+//hej
+
 
 public class BrainGame extends ActionBarActivity {
 
