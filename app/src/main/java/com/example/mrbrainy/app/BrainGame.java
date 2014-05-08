@@ -19,6 +19,7 @@ public class BrainGame extends ActionBarActivity {
     private int pageNumber = 1;
 
     //HEJ!!!!
+    //TJABBA TJENA HALLÅ
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
