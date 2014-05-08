@@ -1,23 +1,23 @@
 public class Mode {
-	//Svårighetsgraden
+	//Svï¿½righetsgraden
 	private int mode = 0;
 	private int ENHmax;
 	private int correctQ;
 	private int faultMode = 0;
 	private int faultQ;
 	public int ENH = 0;
-	
-	//max är hur många svårighetsgrader det finns (börjar på 0)
-	//och q är hur många frågor som behövs besvaras rätt för att
-	//det ska gå över till nästa svårighetsgrad
-	//fq är hur många fel användaren kan svara innan den hoppar tillbaks
-	//ett snäpp i svårighetsgraden
+
+	//max ï¿½r hur mï¿½nga svï¿½righetsgrader det finns (bï¿½rjar pï¿½ 0)
+	//och q ï¿½r hur mï¿½nga frï¿½gor som behï¿½vs besvaras rï¿½tt fï¿½r att
+	//det ska gï¿½ ï¿½ver till nï¿½sta svï¿½righetsgrad
+	//fq ï¿½r hur mï¿½nga fel anvï¿½ndaren kan svara innan den hoppar tillbaks
+	//ett snï¿½pp i svï¿½righetsgraden
 	public Mode(int max, int q, int fq){
 		ENHmax = max-1;
 		correctQ = q;
 		faultQ = fq;
 	}
-	//lägger till för varje korrekt fråga, 
+	//lï¿½gger till fï¿½r varje korrekt frï¿½ga, 
 	public void add(){
 		faultMode = 0;
 		mode++;
@@ -28,9 +28,9 @@ public class Mode {
 			}
 		}
 	}
-	//om användaren svarar fel, sätt antal rätt svarade frågor till 0
-	//ändra även så att om avändaren skrivit ett antal fel svar på raken
-	//så gå bakåt ett steg i svårighetsgraden
+	//om anvï¿½ndaren svarar fel, sï¿½tt antal rï¿½tt svarade frï¿½gor till 0
+	//ï¿½ndra ï¿½ven sï¿½ att om avï¿½ndaren skrivit ett antal fel svar pï¿½ raken
+	//sï¿½ gï¿½ bakï¿½t ett steg i svï¿½righetsgraden
 	public void remove(){
 		mode = 0;
 		if(faultMode >= faultQ && ENH > 0){
