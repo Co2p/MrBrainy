@@ -1,3 +1,5 @@
+package com.example.mrbrainy.app;
+
 public class Mode {
 	//Sv�righetsgraden
 	private int mode = 0;

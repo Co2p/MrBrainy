@@ -1,7 +1,9 @@
+package com.example.mrbrainy.app;
+
 import java.util.Random;
 
 public class MathQuiz {	
-	//Frågan och svaret
+	//FrÃ¥gan och svaret
 	public String qe;
 	public int answer;
 	Mode mode;
@@ -13,7 +15,7 @@ public class MathQuiz {
 	
 	public String answer(){
 		System.out.print(qe + "\n");
-		return ("svaret är: " + answer);
+		return ("svaret Ã¤r: " + answer);
 	}
 	
 	public void generateQuestion()throws Exception{
@@ -26,18 +28,18 @@ public class MathQuiz {
 		}
 	}
 	
-	//Enklaste svårighetsgraden
+	//Enklaste svÃ¥righetsgraden
 	private void easyQ(){
 		Random randomGenerator = new Random();
 		int randInt, q1, q2;
 		
-		//Olika frågor, t.ex. plus, minus och gånger
+		//Olika frï¿½gor, t.ex. plus, minus och gï¿½nger
 		randInt = randomGenerator.nextInt(2);
 		
-		//Genererar basen till frågorna
+		//Genererar basen till frï¿½gorna
 		q1 = randomGenerator.nextInt(20) - 10;
 		q2 = randomGenerator.nextInt(20) - 10;
-		//Frågorna
+		//Frï¿½gorna
 		switch(randInt){
 			//plus
 			case 0:
@@ -49,22 +51,22 @@ public class MathQuiz {
 				answer = q1 - q2;
 				qe = generateString(q1 + " - " + q2);
 				break;
-			//gånger
+			//gï¿½nger
 			case 2:
 				answer = q1 * q2;
-				qe = generateString(q1 + " × " + q2);
+				qe = generateString(q1 + " * " + q2);
 				break;
 		}
 		
 	}
 	
-	//Genererar en sträng som en fråga
+	//Genererar en strÃ¤ng som en frÃ¥ga
 	private String generateString(String q){
-		String ret = "Vad är: " + q + "?";
+		String ret = "Vad ï¿½r: " + q + "?";
 		return ret;
 	}
 	
-	//Genererar fel svar inom ett spann (spann på 10 och svar på 5 ger mellan 0 och 10)
+	//Genererar fel svar inom ett spann (spann pÃ¥ 10 och svar pÃ¥ 5 ger mellan 0 och 10)
 	public int generateFault(int range){
 		Random randomGenerator = new Random();
 		int randInt;
