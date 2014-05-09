@@ -17,19 +17,27 @@ public class BrainGame extends ActionBarActivity {
     private RadioGroup AnswerGroup;
     private RadioButton  AnswerButton;
     private Button btnDisplay;
-
-    //This needs a object that is compatible with AnswerButton
-    private String realAnswer;
-    private int pageNumber = 1;
-    private Mode mode;
-    private String pageString;
+    private int pageNumber = 2;
+    private String questionString;
+    private MathQuiz quiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
-        mode = new Mode(5, 3, 2);
-        pageString = new String("Question nr: " + pageNumber);
+        quiz = new MathQuiz();
+
+
+    }
+
+    protected void newQuestion() throws Exception {
+
+        questionString = quiz.generateQuestion();
+
+        TextView qText = (TextView) findViewById(R.id.question);
+        qText.setText(questionString);
+
+        String pageString = new String("Question nr: " + pageNumber);
 
     }
 

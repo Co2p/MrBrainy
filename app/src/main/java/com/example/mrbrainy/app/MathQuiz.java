@@ -18,18 +18,20 @@ public class MathQuiz {
 		return ("svaret är: " + answer);
 	}
 	
-	public void generateQuestion()throws Exception{
+	public String generateQuestion()throws Exception{
+        String qe;
 		switch(mode.getMode()){
 			case 1:
-				easyQ();
-				break;
+				qe=easyQ();
+                return qe;
 			case 2:
 				throw new Exception("Wow you're clever!");
 		}
+        return "something's wrong";
 	}
 	
 	//Enklaste svårighetsgraden
-	private void easyQ(){
+	private String easyQ(){
 		Random randomGenerator = new Random();
 		int randInt, q1, q2;
 		
@@ -57,7 +59,8 @@ public class MathQuiz {
 				qe = generateString(q1 + " * " + q2);
 				break;
 		}
-		
+
+        return qe;
 	}
 	
 	//Genererar en sträng som en fråga
