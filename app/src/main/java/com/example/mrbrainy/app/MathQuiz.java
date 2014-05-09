@@ -65,7 +65,7 @@ public class MathQuiz {
 	
 	//Genererar en sträng som en fråga
 	private String generateString(String q){
-		String ret = "Vad �r: " + q + "?";
+		String ret = "Vad är: " + q + "?";
 		return ret;
 	}
 	
