@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class MathQuiz {	
 	//Frågan och svaret
-	public String qe;
-	public int answer;
+	private String qe;
+	private int answer;
 	Mode mode;
 	
 	public MathQuiz(){
@@ -13,9 +13,8 @@ public class MathQuiz {
 		easyQ();
 	}
 	
-	public String answer(){
-		System.out.print(qe + "\n");
-		return ("svaret är: " + answer);
+	public int getAnswer(){
+		return answer;
 	}
 	
 	public String generateQuestion()throws Exception{
@@ -70,7 +69,7 @@ public class MathQuiz {
 	}
 	
 	//Genererar fel svar inom ett spann (spann på 10 och svar på 5 ger mellan 0 och 10)
-	public int generateFault(int range){
+	public int getFalseAns(int range){
 		Random randomGenerator = new Random();
 		int randInt;
 		randInt = answer + randomGenerator.nextInt(range) - range/2;

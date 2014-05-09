@@ -17,7 +17,7 @@ public class BrainGame extends ActionBarActivity {
     private RadioGroup AnswerGroup;
     private RadioButton  AnswerButton;
     private Button btnDisplay;
-    private int pageNumber = 1;
+    private int pageNumber;
     private String questionString;
     private MathQuiz quiz;
     private TextView qText;
@@ -28,6 +28,7 @@ public class BrainGame extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
         quiz = new MathQuiz();
+        pageNumber = 1;
         try {
             newQuestion();
         } catch (Exception e) {
@@ -47,6 +48,8 @@ public class BrainGame extends ActionBarActivity {
         pageNr = (TextView) findViewById(R.id.questionNumber);
         pageNr.setText("Question " + pageNumber);
 
+        quiz.get
+
     }
 
 
@@ -62,12 +65,16 @@ public class BrainGame extends ActionBarActivity {
                 int selectedId = AnswerGroup.getCheckedRadioButtonId();
                 AnswerButton = (RadioButton) findViewById(selectedId);
 
-                /*
-                if(AnswerButton.equals(realAnswer)){
-                    mode.add();
+
+                if(AnswerButton.equals(null)){
+                    return;
                 }
+                /*if(AnswerButton.equals(realAnswer)){
+                    quiz.mode.add();
+                }*/
                 else
-                    mode.remove();*/
+                    quiz.mode.remove();
+
 
                 Toast.makeText(BrainGame.this,
                         AnswerButton.getText(), Toast.LENGTH_SHORT).show();
