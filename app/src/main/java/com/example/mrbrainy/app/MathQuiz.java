@@ -37,7 +37,7 @@ public class MathQuiz {
 		//Olika fr�gor, t.ex. plus, minus och g�nger
 		randInt = randomGenerator.nextInt(2);
 		
-		//Genererar basen till fr�gorna
+		//Genererar basen till frågorna
 		q1 = randomGenerator.nextInt(20) - 10;
 		q2 = randomGenerator.nextInt(20) - 10;
 		//Fr�gorna
@@ -64,8 +64,7 @@ public class MathQuiz {
 	
 	//Genererar en sträng som en fråga
 	private String generateString(String q){
-		String ret = "Vad är: " + q + "?";
-		return ret;
+		return ("Vad är: " + q + "?");
 	}
 	
 	//Genererar fel svar inom ett spann (spann på 10 och svar på 5 ger mellan 0 och 10)

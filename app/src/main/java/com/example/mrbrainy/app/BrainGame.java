@@ -9,7 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.content.Intent;
+import java.util.Queue;
+import java.util.Random;
 
 
 public class BrainGame extends ActionBarActivity {
@@ -20,8 +21,15 @@ public class BrainGame extends ActionBarActivity {
     private int pageNumber;
     private String questionString;
     private MathQuiz quiz;
+    private Queue alternatives;
+    private Random altRandomizer;
     private TextView qText;
     private TextView pageNr;
+    private RadioButton alt1;
+    private RadioButton alt2;
+    private RadioButton alt3;
+    private RadioButton alt4;
+    private RadioButton alt5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,14 @@ public class BrainGame extends ActionBarActivity {
         setContentView(R.layout.activity_brain_game);
         quiz = new MathQuiz();
         pageNumber = 1;
+        altRandomizer = new Random(42);
+
+        alt1 = (RadioButton) findViewById(R.id.a1);
+        alt2 = (RadioButton) findViewById(R.id.a1);
+        alt3 = (RadioButton) findViewById(R.id.a1);
+        alt4 = (RadioButton) findViewById(R.id.a1);
+        alt5 = (RadioButton) findViewById(R.id.a1);
+
         try {
             newQuestion();
         } catch (Exception e) {
@@ -36,10 +52,10 @@ public class BrainGame extends ActionBarActivity {
         }
 
 
+
     }
 
     protected void newQuestion() throws Exception {
-
         questionString = quiz.generateQuestion();
 
         qText = (TextView) findViewById(R.id.question);
@@ -48,7 +64,21 @@ public class BrainGame extends ActionBarActivity {
         pageNr = (TextView) findViewById(R.id.questionNumber);
         pageNr.setText("Question " + pageNumber);
 
-        quiz.get
+        alternatives.add(quiz.getAnswer());
+
+        for (int i=0; i<4; i++) {
+            alternatives.add(quiz.getFalseAns(quiz.getAnswer()));
+        }
+
+
+
+        alt1.setText(quiz.getAnswer());
+        alt2.setText(quiz.getFalseAns(quiz.getAnswer()));
+        alt3.setText(quiz.getFalseAns(quiz.getAnswer()));
+        alt4.setText(quiz.getFalseAns(quiz.getAnswer()));
+        alt5.setText(quiz.getFalseAns(quiz.getAnswer()));
+
+
 
     }
 
