@@ -14,6 +14,6 @@
     <string name="a3">test3</string>
     <string name="a4">test4</string>
     <string name="next">Next</string>
-    <string name="pageNumberM">Page %d</string>
+    <string name="pageNr">String</string>
 
 </resources>

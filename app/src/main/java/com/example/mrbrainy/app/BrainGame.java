@@ -17,21 +17,19 @@ public class BrainGame extends ActionBarActivity {
     private RadioGroup AnswerGroup;
     private RadioButton  AnswerButton;
     private Button btnDisplay;
-    private String pageString;
 
     //This needs a object that is compatible with AnswerButton
     private String realAnswer;
     private int pageNumber = 1;
     private Mode mode;
+    private String pageString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
         mode = new Mode(5, 3, 2);
-        String pageString = new String("Question nr: " + pageNumber);
-        TextView page = (TextView) findViewById(R.id.pageN);
-        page.setText(pageString);
+        pageString = new String("Question nr: " + pageNumber);
 
     }
 
@@ -48,11 +46,12 @@ public class BrainGame extends ActionBarActivity {
                 int selectedId = AnswerGroup.getCheckedRadioButtonId();
                 AnswerButton = (RadioButton) findViewById(selectedId);
 
+                /*
                 if(AnswerButton.equals(realAnswer)){
                     mode.add();
                 }
                 else
-                    mode.remove();
+                    mode.remove();*/
 
                 Toast.makeText(BrainGame.this,
                         AnswerButton.getText(), Toast.LENGTH_SHORT).show();
