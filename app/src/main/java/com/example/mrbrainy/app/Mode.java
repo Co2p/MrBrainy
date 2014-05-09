@@ -9,11 +9,11 @@ public class Mode {
 	private int faultQ;
 	public int ENH = 0;
 	
-	//max �r hur m�nga sv�righetsgrader det finns (b�rjar p� 0)
-	//och q �r hur m�nga fr�gor som beh�vs besvaras r�tt f�r att
-	//det ska g� �ver till n�sta sv�righetsgrad
-	//fq �r hur m�nga fel anv�ndaren kan svara innan den hoppar tillbaks
-	//ett sn�pp i sv�righetsgraden
+	//max är hur många svårighetsgrader det finns (börjar på 0)
+	//och q är hur många frågor som behövs besvaras rätt för att
+	//det ska gå över till nästa svårighetsgrad
+	//fq är hur många fel användaren kan svara innan den hoppar tillbaks
+	//ett snäpp i svårighetsgraden
 	public Mode(int max, int q, int fq){
 		ENHmax = max-1;
 		correctQ = q;
