@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,10 @@ public class BrainGame extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
-        String message = this.getResources().getString(R.string.pageNumberM, pageNumber);
+        String pageString = new String("Qestion: " + pageNumber);
+        TextView page = (TextView) findViewById(R.id.pageN);
+        page.setText(pageString);
+
     }
     public void addListenerOnButton(){
         AnswerGroup = (RadioGroup) findViewById(R.id.radioAnswerGroup);

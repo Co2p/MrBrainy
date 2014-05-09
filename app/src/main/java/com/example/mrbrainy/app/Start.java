@@ -12,6 +12,7 @@ public class Start extends ActionBarActivity {
         Intent intent = new Intent(this, BrainGame.class);
         startActivity(intent);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
