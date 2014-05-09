@@ -30,7 +30,7 @@ public class Mode {
 			}
 		}
 	}
-	//om anv�ndaren svarar fel, s�tt antal r�tt svarade fr�gor till 0
+	//om användaren svarar fel, s�tt antal r�tt svarade fr�gor till 0
 	//�ndra �ven s� att om av�ndaren skrivit ett antal fel svar p� raken
 	//s� g� bak�t ett steg i sv�righetsgraden
 	public void remove(){
