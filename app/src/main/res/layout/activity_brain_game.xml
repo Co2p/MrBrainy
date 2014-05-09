@@ -48,8 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/QuestionNumber"
-        android:id="@+id/QuestionNumber"
+        android:id="@+id/questionNumber"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
@@ -60,10 +59,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/question"
-        android:layout_below="@+id/QuestionNumber"
-        android:layout_alignLeft="@+id/QuestionNumber"
-        android:layout_alignStart="@+id/QuestionNumber"
-        android:layout_marginTop="28dp" />
+        android:layout_below="@+id/questionNumber"
+        android:layout_alignLeft="@+id/questionNumber"
+        android:layout_marginTop="28dp"
+        android:singleLine="false" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -75,14 +74,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/QuestionNumber"
-        android:id="@+id/pageNr"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

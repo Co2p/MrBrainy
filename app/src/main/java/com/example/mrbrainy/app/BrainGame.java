@@ -17,15 +17,22 @@ public class BrainGame extends ActionBarActivity {
     private RadioGroup AnswerGroup;
     private RadioButton  AnswerButton;
     private Button btnDisplay;
-    private int pageNumber = 2;
+    private int pageNumber = 1;
     private String questionString;
     private MathQuiz quiz;
+    private TextView qText;
+    private TextView pageNr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
         quiz = new MathQuiz();
+        try {
+            newQuestion();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -34,10 +41,11 @@ public class BrainGame extends ActionBarActivity {
 
         questionString = quiz.generateQuestion();
 
-        TextView qText = (TextView) findViewById(R.id.question);
+        qText = (TextView) findViewById(R.id.question);
         qText.setText(questionString);
 
-        String pageString = new String("Question nr: " + pageNumber);
+        pageNr = (TextView) findViewById(R.id.questionNumber);
+        pageNr.setText("Question " + pageNumber);
 
     }
 
