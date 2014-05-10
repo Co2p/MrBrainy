@@ -173,10 +173,23 @@ public class BrainGame extends ActionBarActivity {
                     linearLayout.setBackground(drawable);
                     break;
 
+                case 5:
+                    drawable = resources.getDrawable(R.drawable.bglevel5);
+                    linearLayout.setBackground(drawable);
+                    break;
 
+                case 6:
+                    drawable = resources.getDrawable(R.drawable.bglevel6);
+                    linearLayout.setBackground(drawable);
+                    break;
+
+                case 7:
+                    drawable = resources.getDrawable(R.drawable.bglevel7);
+                    linearLayout.setBackground(drawable);
+                    break;
 
                 default:
-                    drawable = resources.getDrawable(R.drawable.bglevel5);
+                    drawable = resources.getDrawable(R.drawable.bglevel8);
                     linearLayout.setBackground(drawable);
                     break;
 
