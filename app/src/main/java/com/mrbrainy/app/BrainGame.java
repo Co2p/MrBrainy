@@ -133,10 +133,9 @@ public class BrainGame extends ActionBarActivity {
         //will add to the correct answers in the mode class, otherwise
         // it will remove.
     private void answerEvent(boolean ansBool) {
-        boolean newLvl;
         if (ansBool){
             System.out.println("RIGHT ANSWER!");
-            newLvl = quiz.getMode().add();
+            quiz.getMode().add();
 
             /*if (newLvl){
 
