@@ -25,8 +25,10 @@ public class BrainGame extends ActionBarActivity {
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
 
+    //Constructor... creates a relativeLayout variable, resources variable and a new game (quiz)
+        //initiates the buttons and the question number.
+        //it also launches the first question.
     @Override
-    //Finds the buttons and saves them in variables
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
