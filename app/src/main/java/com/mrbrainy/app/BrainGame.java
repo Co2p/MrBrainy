@@ -145,10 +145,10 @@ public class BrainGame extends ActionBarActivity {
                 }
             }*/
         }
-        else
+        else {
             quiz.getMode().remove();
             System.out.println("WRONG ANSWER!");
-
+        }
         newQuestion();
     }
 }
