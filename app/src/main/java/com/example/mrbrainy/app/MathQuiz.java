@@ -46,17 +46,32 @@ public class MathQuiz {
 			//plus
 			case 0:
 				answer = var1 + var2;
-				questionString = (var1 + " + " + var2);
+
+                if(var2<0){
+                    questionString = (var1 + "+" + "(" + var2 + ")");
+                }
+                else
+                    questionString = (var1 + " + " + var2);
+
 				break;
 			//minus
 			case 1:
 				answer = var1 - var2;
-				questionString = (var1 + " - " + var2);
+                if(var2<0){
+                    questionString = (var1 + "-" + "(" + var2 + ")");
+                }
+                else
+				    questionString = (var1 + " - " + var2);
+
 				break;
 			//multiplication
 			case 2:
 				answer = var1 * var2;
-				questionString = (var1 + " * " + var2);
+                if(var2<0){
+                    questionString = (var1 + "*" + "(" + var2 + ")");
+                }
+                else
+				    questionString = (var1 + " * " + var2);
 				break;
 		}
         return questionString;

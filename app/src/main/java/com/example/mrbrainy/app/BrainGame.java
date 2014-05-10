@@ -57,9 +57,11 @@ public class BrainGame extends ActionBarActivity {
     protected void newQuestion() throws Exception {
         questionString = quiz.generateQuestion();
 
+        //Displays the question
         qText = (TextView) findViewById(R.id.question);
         qText.setText("Vad är: " + questionString + "?");
 
+        //Displays the question number
         pageNr = (TextView) findViewById(R.id.questionNumber);
         pageNr.setText("Question " + pageNumber);
 

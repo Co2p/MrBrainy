@@ -7,8 +7,5 @@
     <string name="welcome">Welcome to Mr. Brainy!</string>
     <string name="info">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
     <string name="title_activity_brain_game">BrainGame</string>
-    <string name="question">Vem är du?</string>
-    <string name="next">Next</string>
-    <string name="pageNr">String</string>
 
 </resources>
