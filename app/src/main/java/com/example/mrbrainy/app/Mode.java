@@ -10,14 +10,14 @@ public class Mode {
 	public int ENH = 0;
 	
 	//max är hur många svårighetsgrader det finns (börjar på 0)
-	//och q är hur många frågor som behövs besvaras rätt för att
+	//och qGoal är hur många frågor som behövs besvaras rätt för att
 	//det ska gå över till nästa svårighetsgrad
-	//fq är hur många fel användaren kan svara innan den hoppar tillbaks
+	//falseQ är hur många fel användaren kan svara innan den hoppar tillbaks
 	//ett snäpp i svårighetsgraden
-	public Mode(int max, int q, int fq){
-		ENHmax = max-1;
-		correctQ = q;
-		faultQ = fq;
+	public Mode(int maxLevels, int qGoal, int falseQ){
+		ENHmax = maxLevels-1;
+		correctQ = qGoal;
+		faultQ = falseQ;
 	}
 	//l�gger till f�r varje korrekt fr�ga, 
 	public void add(){
