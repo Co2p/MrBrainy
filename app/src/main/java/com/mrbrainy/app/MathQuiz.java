@@ -24,9 +24,9 @@ public class MathQuiz {
 
     //Generates a faulty answer within a window
     // (a window that's 10 and answer on 5 returns between 0 and 10)
-    public int getFalseAns(int answer){
+    public int getFalseAns(int ans){
         Random randomGenerator = new Random();
-        int range = Math.abs(answer);
+        int range = Math.abs(ans);
 
         if(range<5){
             range=(range+5);
@@ -34,8 +34,8 @@ public class MathQuiz {
         int randInt;
 
         do {
-            randInt = answer + randomGenerator.nextInt(range) - range / 2;
-        }while (randInt==answer);
+            randInt = ans + randomGenerator.nextInt(range) - range / 2;
+        }while (randInt==ans);
 
         return randInt;
     }
