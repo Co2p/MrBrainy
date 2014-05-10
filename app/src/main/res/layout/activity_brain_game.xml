@@ -2,13 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/brainybg"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.mrbrainy.app.BrainGame"
-    android:background="@drawable/brainybg"
-    style="@style/Theme.AppCompat.Light">
+
+    style="@style/Theme.AppCompat.Light"
+    android:gravity="top"
+    android:longClickable="false">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,8 +20,8 @@
         android:id="@+id/questionNumber"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:textColor="#a9000000"
         android:singleLine="false" />
 
     <TextView
@@ -27,16 +30,18 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/question"
         android:layout_below="@+id/questionNumber"
-        android:layout_alignLeft="@+id/questionNumber"
         android:layout_marginTop="28dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
         android:textColor="#000"
-        android:singleLine="false" />
+        android:singleLine="false"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/a1"
-        android:text="TEST2"
+        android:text="Blue"
         android:background="#ff33b5e5"
         android:layout_above="@+id/a5"
         android:layout_centerHorizontal="true"
@@ -47,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/a2"
-        android:text="TEST1"
+        android:text="Green"
         android:background="#ff99cc00"
         android:layout_above="@+id/a1"
         android:layout_alignLeft="@+id/a1"
@@ -59,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/a3"
-        android:text="TEST4"
+        android:text="Red"
         android:background="#ffff4444"
         android:layout_above="@+id/a4"
         android:layout_alignLeft="@+id/a1"
@@ -71,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/a4"
-        android:text="TEST5"
+        android:text="Yellow"
         android:background="#ffffbb33"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/a3"
@@ -83,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/a5"
-        android:text="TEST3"
+        android:text="Purple"
         android:background="#ffaa66cc"
         android:layout_above="@+id/a3"
         android:layout_alignLeft="@+id/a3"

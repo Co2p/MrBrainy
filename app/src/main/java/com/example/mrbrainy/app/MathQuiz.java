@@ -8,7 +8,7 @@ public class MathQuiz {
 	private String questionString;
 	private int answer;
     private Random randomGenerator = new Random();
-	Mode mode;
+	private Mode mode;
 	
 	public MathQuiz(){
 		mode = new Mode(5, 3, 2);
@@ -28,6 +28,8 @@ public class MathQuiz {
 
         return randInt;
     }
+
+    public Mode getMode(){return mode;}
 	
 	public String generateQuestion()throws Exception{
         String questionString;
