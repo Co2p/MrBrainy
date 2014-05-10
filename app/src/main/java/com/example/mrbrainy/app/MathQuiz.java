@@ -2,8 +2,9 @@ package com.example.mrbrainy.app;
 
 import java.util.Random;
 
+
 public class MathQuiz {	
-	//Question and answer
+	//Frågan och svaret
 	private String qe;
 	private int answer;
 	Mode mode;
@@ -29,11 +30,12 @@ public class MathQuiz {
         return "something's wrong";
 	}
 	
-	//Easiest mode
+	//Enklaste svårighetsgraden
 	private String easyQ(){
 		Random randomGenerator = new Random();
 		int randInt, q1, q2;
-		//Randomizer for the different questions, e.g plus, minus, multiplication etc.
+		
+		//Olika fr�gor, t.ex. plus, minus och g�nger
 		randInt = randomGenerator.nextInt(2);
 		
 		//Generates the basenumbers for each question
@@ -44,25 +46,20 @@ public class MathQuiz {
 			//plus
 			case 0:
 				answer = q1 + q2;
-				qe = generateString(q1 + " + " + q2);
+				qe = (q1 + " + " + q2);
 				break;
 			//minus
 			case 1:
 				answer = q1 - q2;
-				qe = generateString(q1 + " - " + q2);
+				qe = (q1 + " - " + q2);
 				break;
 			//multiplication
 			case 2:
 				answer = q1 * q2;
-				qe = generateString(q1 + " * " + q2);
+				qe = (q1 + " * " + q2);
 				break;
 		}
         return qe;
-	}
-	
-	//Generates the question as a string
-	private String generateString(String q){
-		return ("Vad är: " + q + "?");
 	}
 	
 	//Generates a faulty answer within a window
