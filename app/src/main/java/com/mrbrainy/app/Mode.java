@@ -7,7 +7,7 @@ public class Mode {
 	private int correctQ;
 	private int faultMode = 0;
 	private int faultQ;
-	public int ENH = 0;
+	public int level = 0;
 	
 	//max är hur många svårighetsgrader det finns (börjar på 0)
 	//och qGoal är hur många frågor som behövs besvaras rätt för att
@@ -26,8 +26,8 @@ public class Mode {
 		mode++;
 		if(mode >= correctQ){
 			mode = 0;
-			if(ENH < ENHmax){
-				ENH++;
+			if(level < ENHmax){
+				level++;
                 return true;
 			}
 		}
@@ -39,12 +39,20 @@ public class Mode {
 	//så gå bakåt ett steg i svårighetsgraden
 	public void remove(){
 		mode = 0;
-		if(faultMode >= faultQ && ENH > 0){
-			ENH--;
+		if(faultMode >= faultQ && level > 0){
+			level--;
 		}
 	}
 	
 	public int getMode(){
-		return ENH+1;
+		return level+1;
 	}
+
+    public int getProgressToNext(){
+        return mode;
+    }
+
+    public int getStepSize(){
+        return correctQ;
+    }
 }

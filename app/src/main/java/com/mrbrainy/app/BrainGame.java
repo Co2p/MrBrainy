@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class BrainGame extends ActionBarActivity {
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText;
     private LinearLayout linearLayout;
+    private ProgressBar progress;
     private Resources resources;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
@@ -34,6 +36,7 @@ public class BrainGame extends ActionBarActivity {
         setContentView(R.layout.activity_brain_game);
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
+        progress = (ProgressBar) findViewById(R.id.progress);
         quiz = new MathQuiz();
         pageNumber = 0;
 
@@ -49,6 +52,8 @@ public class BrainGame extends ActionBarActivity {
     //Generates a new question and adds it to the display
     protected void newQuestion(){
         pageNumber++;
+        progress.setMax(quiz.getMode().getStepSize());
+        progress.setProgress((quiz.getMode().getProgressToNext()/(quiz.getMode().getStepSize())));
 
         String questionString = quiz.generateQuestion();
 
@@ -188,8 +193,13 @@ public class BrainGame extends ActionBarActivity {
                     linearLayout.setBackground(drawable);
                     break;
 
-                default:
+                case 8:
                     drawable = resources.getDrawable(R.drawable.bglevel8);
+                    linearLayout.setBackground(drawable);
+                    break;
+
+                default:
+                    drawable = resources.getDrawable(R.drawable.bglevel9);
                     linearLayout.setBackground(drawable);
                     break;
 

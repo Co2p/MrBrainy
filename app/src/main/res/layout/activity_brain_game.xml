@@ -106,6 +106,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp" />
 
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress"
+            android:layout_gravity="center_horizontal" />
+
     </LinearLayout>
 
 
