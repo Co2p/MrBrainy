@@ -68,8 +68,8 @@ public class BrainGame extends ActionBarActivity {
             alt1.setText(String.valueOf(quiz.getAnswer()));
             alt2.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
             alt3.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
-            alt4.setText(String.valueOf((quiz.getAnswer())));
-            alt5.setText(String.valueOf((quiz.getAnswer())));
+            alt4.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
+            alt5.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
         }
         else if (realAns<2){
             alt1.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
