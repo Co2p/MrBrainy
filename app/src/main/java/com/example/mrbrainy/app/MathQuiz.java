@@ -45,26 +45,21 @@ public class MathQuiz {
 			//plus
 			case 0:
 				answer = q1 + q2;
-				qe = generateString(q1 + " + " + q2);
+				qe = (q1 + " + " + q2);
 				break;
 			//minus
 			case 1:
 				answer = q1 - q2;
-				qe = generateString(q1 + " - " + q2);
+				qe = (q1 + " - " + q2);
 				break;
 			//g�nger
 			case 2:
 				answer = q1 * q2;
-				qe = generateString(q1 + " * " + q2);
+				qe = (q1 + " * " + q2);
 				break;
 		}
 
         return qe;
-	}
-	
-	//Genererar en sträng som en fråga
-	private String generateString(String q){
-		return ("Vad är: " + q + "?");
 	}
 	
 	//Genererar fel svar inom ett spann (spann på 10 och svar på 5 ger mellan 0 och 10)
