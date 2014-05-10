@@ -1,6 +1,7 @@
 package com.mrbrainy.app;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 
 public class MathQuiz {	
@@ -26,16 +27,16 @@ public class MathQuiz {
     // (a window that's 10 and answer on 5 returns between 0 and 10)
     public int getFalseAns(int ans){
         Random randomGenerator = new Random();
-        int range = Math.abs(ans);
+        int range = (Math.abs(ans)/10);
+        int randInt;
 
         if(range<5){
             range=(range+5);
         }
-        int randInt;
 
         do {
-            randInt = ans + randomGenerator.nextInt(range) - range / 2;
-        }while (randInt==ans);
+            randInt = (ans + randomGenerator.nextInt(range) - range / 2);
+        }while(randInt==ans);
 
         return randInt;
     }
@@ -56,7 +57,7 @@ public class MathQuiz {
 	private String easyQ(){
 
 		int randInt, var1, var2, var3;
-		
+
 		//Generates a number that decides what mathmatical question to give in the case switch
 		randInt = randomGenerator.nextInt(4);
 		
@@ -82,6 +83,7 @@ public class MathQuiz {
 				answer = var1 * var2;
 				questionString = qString(var1, "*", var2);
 				break;
+            //divide
             case 3:
                 answer = var1;
                 var2=(randomGenerator.nextInt(difficulty/4) - difficulty/8)+1;
@@ -98,10 +100,10 @@ public class MathQuiz {
         // be put round it
     private String qString(int var1, String sign, int var2){
         if(var2<0){
-            return var1 + sign + "(" + var2 + ")";
+            return var1 + " " + sign + " " + "(" + var2 + ")";
         }
         else
-            return var1 + sign + var2;
+            return var1 + " " +  sign + " " + var2;
     }
 
     //Returns the basenumbers for each question
