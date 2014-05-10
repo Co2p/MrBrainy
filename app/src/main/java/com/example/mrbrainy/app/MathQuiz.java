@@ -2,6 +2,7 @@ package com.example.mrbrainy.app;
 
 import java.util.Random;
 
+
 public class MathQuiz {	
 	//Frågan och svaret
 	private String qe;
