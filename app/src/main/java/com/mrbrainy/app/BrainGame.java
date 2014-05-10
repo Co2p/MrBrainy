@@ -134,9 +134,9 @@ public class BrainGame extends ActionBarActivity {
         // it will remove.
     private void answerEvent(boolean ansBool) {
         Drawable drawable;
-
         if (ansBool){
-            quiz.getMode().add();
+            System.out.println("RIGHT ANSWER!");
+            newLvl = quiz.getMode().add();
 
             //Changes the background depending on the level
             switch (quiz.getMode().getMode()){
@@ -175,6 +175,7 @@ public class BrainGame extends ActionBarActivity {
         }
         else
             quiz.getMode().remove();
+            System.out.println("WRONG ANSWER!");
 
         newQuestion();
     }

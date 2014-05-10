@@ -80,7 +80,7 @@ public class MathQuiz {
 			//multiplication
 			case 2:
 				answer = var1 * var2;
-				questionString = qString(var1, "*", var2);
+				questionString = qString(var1, "×", var2);
 				break;
             //divide
             case 3:
