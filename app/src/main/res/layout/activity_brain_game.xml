@@ -2,21 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bglevel1"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.mrbrainy.app.BrainGame"
     style="@style/Theme.AppCompat.Light"
-    android:gravity="top"
     android:longClickable="false"
-    android:id="@+id/relativeLayout">
+    android:id="@+id/relativeLayout"
+    android:gravity="top">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@drawable/bglevel1"
+        android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"

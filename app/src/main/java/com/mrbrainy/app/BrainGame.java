@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class BrainGame extends ActionBarActivity {
     private int realAns;
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText;
-    private RelativeLayout relativeLayout;
+    private LinearLayout linearLayout;
     private Resources resources;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
@@ -32,7 +32,7 @@ public class BrainGame extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
-        relativeLayout  = (RelativeLayout) findViewById(R.id.relativeLayout);
+        linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
         quiz = new MathQuiz();
         pageNumber = 0;
@@ -64,11 +64,6 @@ public class BrainGame extends ActionBarActivity {
         levelText = (TextView) findViewById(R.id.level);
         levelText.setText("Level " + quiz.getMode().getMode());
 
-        //Randomizes the order of the answers
-        Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(5);
-
-        System.out.println("The answer is button number: " + (realAns+1) );
         setButtonText();
 
     }
@@ -78,6 +73,10 @@ public class BrainGame extends ActionBarActivity {
         //Puts the real answer inte an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
+        Random altRandomizer = new Random();
+        realAns = altRandomizer.nextInt(5);
+
+        System.out.println("The answer is button number: " + (realAns+1) );
         answers.add(0, String.valueOf(quiz.getAnswer()));
 
         //Randomize in faulty answers into array
@@ -95,7 +94,6 @@ public class BrainGame extends ActionBarActivity {
 
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
-        System.out.println("The answer is button number: " + (realAns+1) );
 
         //Insert answers into game
         alt1.setText(answers.get(0));
@@ -140,8 +138,6 @@ public class BrainGame extends ActionBarActivity {
         CharSequence textWrong = "Wrong";
         int duration = Toast.LENGTH_SHORT;
 
-        System.out.println("tost: " + duration);
-
         if (ansBool){
             System.out.println("RIGHT ANSWER!");
             quiz.getMode().add();
@@ -156,32 +152,32 @@ public class BrainGame extends ActionBarActivity {
 
                 case 1:
                     drawable = resources.getDrawable(R.drawable.bglevel1);
-                    relativeLayout.setBackground(drawable);
+                    linearLayout.setBackground(drawable);
                     break;
 
                 case 2:
                     drawable = resources.getDrawable(R.drawable.bglevel2);
-                    relativeLayout.setBackground(drawable);
+                    linearLayout.setBackground(drawable);
                     break;
 
 
                 case 3:
 
                     drawable = resources.getDrawable(R.drawable.bglevel3);
-                    relativeLayout.setBackground(drawable);
+                    linearLayout.setBackground(drawable);
                     break;
 
 
                 case 4:
                     drawable = resources.getDrawable(R.drawable.bglevel4);
-                    relativeLayout.setBackground(drawable);
+                    linearLayout.setBackground(drawable);
                     break;
 
 
 
                 default:
                     drawable = resources.getDrawable(R.drawable.bglevel5);
-                    relativeLayout.setBackground(drawable);
+                    linearLayout.setBackground(drawable);
                     break;
 
             }
