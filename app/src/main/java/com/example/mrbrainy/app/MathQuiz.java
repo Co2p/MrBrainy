@@ -37,10 +37,10 @@ public class MathQuiz {
 		//Olika fr�gor, t.ex. plus, minus och g�nger
 		randInt = randomGenerator.nextInt(2);
 		
-		//Genererar basen till frågorna
+		//Generates the basenumbers for each question
 		q1 = randomGenerator.nextInt(20) - 10;
 		q2 = randomGenerator.nextInt(20) - 10;
-		//Fr�gorna
+		//The questions
 		switch(randInt){
 			//plus
 			case 0:
@@ -52,17 +52,17 @@ public class MathQuiz {
 				answer = q1 - q2;
 				qe = (q1 + " - " + q2);
 				break;
-			//g�nger
+			//multiplication
 			case 2:
 				answer = q1 * q2;
 				qe = (q1 + " * " + q2);
 				break;
 		}
-
         return qe;
 	}
 	
-	//Genererar fel svar inom ett spann (spann på 10 och svar på 5 ger mellan 0 och 10)
+	//Generates a faulty answer within a window
+	// (a window that's 10 and answer on 5 returns between 0 and 10)
 	public int getFalseAns(int range){
 		Random randomGenerator = new Random();
 		int randInt;
