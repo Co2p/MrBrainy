@@ -39,14 +39,14 @@ public class MathQuiz {
 
     public Mode getMode(){return mode;}
 	
-	public String generateQuestion()throws Exception{
+	public String generateQuestion(){
         String questionString;
 		switch(mode.getMode()){
 			case 1:
 				questionString=easyQ();
                 return questionString;
 			case 2:
-				throw new Exception("Wow you're clever!");
+				return "Wow you're clever!";
 		}
         return "something's wrong";
 	}
@@ -84,7 +84,7 @@ public class MathQuiz {
 				break;
             case 3:
                 answer = var1;
-                var3 = var1 * randomGenerator.nextInt(difficulty) - difficulty/2;
+                var3 = var1 * randomGenerator.nextInt(difficulty/4) - difficulty/8;
                 questionString = qString(var3, "÷", var2);
 		}
         return questionString;
