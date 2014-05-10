@@ -135,6 +135,7 @@ public class BrainGame extends ActionBarActivity {
     private void answerEvent(boolean ansBool) {
         boolean newLvl;
         if (ansBool){
+            System.out.println("RIGHT ANSWER!");
             newLvl = quiz.getMode().add();
 
             /*if (newLvl){
@@ -146,6 +147,7 @@ public class BrainGame extends ActionBarActivity {
         }
         else
             quiz.getMode().remove();
+            System.out.println("WRONG ANSWER!");
 
         newQuestion();
     }
