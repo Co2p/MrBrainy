@@ -95,6 +95,7 @@ public class BrainGame extends ActionBarActivity {
 
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
+        System.out.println("The answer is button number: " + (realAns+1) );
 
         //Insert answers into game
         alt1.setText(answers.get(0));
@@ -136,7 +137,7 @@ public class BrainGame extends ActionBarActivity {
         Drawable drawable;
         if (ansBool){
             System.out.println("RIGHT ANSWER!");
-            newLvl = quiz.getMode().add();
+            quiz.getMode().add();
 
             //Changes the background depending on the level
             switch (quiz.getMode().getMode()){
@@ -173,10 +174,10 @@ public class BrainGame extends ActionBarActivity {
 
             }
         }
-        else
+        else {
             quiz.getMode().remove();
             System.out.println("WRONG ANSWER!");
-
+        }
         newQuestion();
     }
 }
