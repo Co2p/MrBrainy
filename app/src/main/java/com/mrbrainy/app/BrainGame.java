@@ -133,16 +133,45 @@ public class BrainGame extends ActionBarActivity {
         //will add to the correct answers in the mode class, otherwise
         // it will remove.
     private void answerEvent(boolean ansBool) {
-        boolean newLvl;
+        Drawable drawable;
+
         if (ansBool){
-            newLvl = quiz.getMode().add();
+            quiz.getMode().add();
 
-            /*if (newLvl){
+            //Changes the background depending on the level
+            switch (quiz.getMode().getMode()){
 
-                switch (quiz.getMode().getMode()){
+                case 1:
+                    drawable = resources.getDrawable(R.drawable.bglevel1);
+                    relativeLayout.setBackground(drawable);
+                    break;
 
-                }
-            }*/
+                case 2:
+                    drawable = resources.getDrawable(R.drawable.bglevel2);
+                    relativeLayout.setBackground(drawable);
+                    break;
+
+
+                case 3:
+
+                    drawable = resources.getDrawable(R.drawable.bglevel3);
+                    relativeLayout.setBackground(drawable);
+                    break;
+
+
+                case 4:
+                    drawable = resources.getDrawable(R.drawable.bglevel4);
+                    relativeLayout.setBackground(drawable);
+                    break;
+
+
+
+                default:
+                    drawable = resources.getDrawable(R.drawable.bglevel5);
+                    relativeLayout.setBackground(drawable);
+                    break;
+
+            }
         }
         else
             quiz.getMode().remove();
