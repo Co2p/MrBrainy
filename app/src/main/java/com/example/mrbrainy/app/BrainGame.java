@@ -25,11 +25,11 @@ public class BrainGame extends ActionBarActivity {
     private Random altRandomizer;
     private TextView qText;
     private TextView pageNr;
-    private RadioButton alt1;
-    private RadioButton alt2;
-    private RadioButton alt3;
-    private RadioButton alt4;
-    private RadioButton alt5;
+    private Button alt1;
+    private Button alt2;
+    private Button alt3;
+    private Button alt4;
+    private Button alt5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +39,11 @@ public class BrainGame extends ActionBarActivity {
         pageNumber = 1;
         altRandomizer = new Random(42);
 
-        alt1 = (RadioButton) findViewById(R.id.a1);
-        alt2 = (RadioButton) findViewById(R.id.a1);
-        alt3 = (RadioButton) findViewById(R.id.a1);
-        alt4 = (RadioButton) findViewById(R.id.a1);
-        alt5 = (RadioButton) findViewById(R.id.a1);
+        alt1 = (Button) findViewById(R.id.a1);
+        alt2 = (Button) findViewById(R.id.a2);
+        alt3 = (Button) findViewById(R.id.a3);
+        alt4 = (Button) findViewById(R.id.a4);
+        alt5 = (Button) findViewById(R.id.a5);
 
         try {
             newQuestion();
@@ -87,8 +87,8 @@ public class BrainGame extends ActionBarActivity {
     //If it is mode.add should be called, else mode.remove
     //in both cases the next question needs to be fetched
     public void addListenerOnButton(){
-        AnswerGroup = (RadioGroup) findViewById(R.id.radioAnswerGroup);
-        btnDisplay = (Button) findViewById(R.id.next);
+
+
         btnDisplay.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View view){

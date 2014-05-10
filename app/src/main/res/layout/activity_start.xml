@@ -17,17 +17,20 @@
         android:text="@string/start"
         android:id="@+id/startButton"
         android:onClick="startGame"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center_vertical"
+        android:layout_above="@+id/infoText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="81dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/info"
         android:id="@+id/infoText"
-        android:layout_marginTop="24dp"
         android:textColor="#000"
-        android:layout_below="@+id/startButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
