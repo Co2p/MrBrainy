@@ -55,7 +55,7 @@ public class BrainGame extends ActionBarActivity {
         Random altRandomizer = new Random();
         realAns = altRandomizer.nextInt(5);
 
-        System.out.println(realAns);
+        System.out.println("The answer is button number: " + (realAns+1) );
         setButtonText();
 
     }
