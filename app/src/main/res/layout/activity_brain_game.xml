@@ -39,7 +39,8 @@
         android:background="@android:color/holo_blue_light"
         android:layout_above="@+id/a5"
         android:layout_centerHorizontal="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,7 +50,8 @@
         android:layout_above="@+id/a1"
         android:layout_alignLeft="@+id/a1"
         android:layout_alignStart="@+id/a1"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -59,7 +61,8 @@
         android:layout_above="@+id/a4"
         android:layout_alignLeft="@+id/a1"
         android:layout_alignStart="@+id/a1"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -80,7 +83,8 @@
         android:layout_above="@+id/a3"
         android:layout_alignLeft="@+id/a3"
         android:layout_alignStart="@+id/a3"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_marginBottom="10dp" />
 
 
 </RelativeLayout>
