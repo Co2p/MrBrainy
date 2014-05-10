@@ -1,9 +1,12 @@
 package com.mrbrainy.app;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +20,8 @@ public class BrainGame extends ActionBarActivity {
     private int realAns;
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText;
+    private RelativeLayout relativeLayout;
+    private Resources resources;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
 
@@ -25,6 +30,8 @@ public class BrainGame extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
+        relativeLayout  = (RelativeLayout) findViewById(R.id.relativeLayout);
+        resources = getResources();
         quiz = new MathQuiz();
         pageNumber = 0;
 
@@ -51,6 +58,7 @@ public class BrainGame extends ActionBarActivity {
         pageNr = (TextView) findViewById(R.id.questionNumber);
         pageNr.setText("Question " + pageNumber);
 
+        //Displays the current level
         levelText = (TextView) findViewById(R.id.level);
         levelText.setText("Level " + quiz.getMode().getMode());
 
@@ -116,15 +124,23 @@ public class BrainGame extends ActionBarActivity {
 
     //Catches a onClick event for the button alt5/R.id.a5
     public void button5(View v){
-        answerEvent(realAns == 4);
+        answerEvent(realAns==4);
     }
 
     //Processes all of the onClick events, catches a bool, of true it
         //will add to the correct answers in the mode class, otherwise
         // it will remove.
     private void answerEvent(boolean ansBool) {
+        boolean newLvl;
         if (ansBool){
-            quiz.getMode().add();
+            newLvl = quiz.getMode().add();
+
+            /*if (newLvl){
+
+                switch (quiz.getMode().getMode()){
+
+                }
+            }*/
         }
         else
             quiz.getMode().remove();
