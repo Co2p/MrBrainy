@@ -9,11 +9,6 @@ public class MathQuiz {
 	private int answer;
     private Random randomGenerator = new Random();
 	Mode mode;
-    private String plus = new String("+");
-    private String minus = new String("-");
-    private String multiply = new String("*");
-    private String divide = new String("÷");
-
 	
 	public MathQuiz(){
 		mode = new Mode(5, 3, 2);
@@ -64,23 +59,23 @@ public class MathQuiz {
 			//plus
 			case 0:
 				answer = var1 + var2;
-                questionString = qString(var1, plus, var2);
+                questionString = qString(var1, "+", var2);
 				break;
 			//minus
 			case 1:
 				answer = var1 - var2;
-				questionString = qString(var1, minus, var2);
+				questionString = qString(var1, "-", var2);
 
 				break;
 			//multiplication
 			case 2:
 				answer = var1 * var2;
-				questionString = qString(var1, multiply, var2);
+				questionString = qString(var1, "*", var2);
 				break;
             case 3:
                 answer = var1;
                 var3 = var1 * randomGenerator.nextInt(difficulty) - difficulty/2;
-                questionString = qString(var3, divide, var2);
+                questionString = qString(var3, "÷", var2);
 		}
         return questionString;
 	}
