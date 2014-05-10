@@ -107,9 +107,10 @@
             android:layout_marginTop="30dp" />
 
         <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:indeterminate="false"
             android:id="@+id/progress"
             android:layout_gravity="center_horizontal" />
 

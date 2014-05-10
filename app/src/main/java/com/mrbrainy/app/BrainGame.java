@@ -22,6 +22,7 @@ public class BrainGame extends ActionBarActivity {
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText;
     private LinearLayout linearLayout;
+    private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
     //AnswerButtons
@@ -36,9 +37,13 @@ public class BrainGame extends ActionBarActivity {
         setContentView(R.layout.activity_brain_game);
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
-        progress = (ProgressBar) findViewById(R.id.progress);
+
         quiz = new MathQuiz();
         pageNumber = 0;
+
+        progress = (ProgressBar) findViewById(R.id.progress);
+        progress.setProgress(progressStatus);
+        progress.setMax(quiz.getMode().getStepSize());
 
         alt1 = (Button)findViewById(R.id.a1);
         alt2 = (Button)findViewById(R.id.a2);
@@ -52,8 +57,8 @@ public class BrainGame extends ActionBarActivity {
     //Generates a new question and adds it to the display
     protected void newQuestion(){
         pageNumber++;
-        progress.setMax(quiz.getMode().getStepSize());
-        progress.setProgress((quiz.getMode().getProgressToNext()/(quiz.getMode().getStepSize())));
+        progressStatus = (quiz.getMode().getProgressToNext()/(quiz.getMode().getStepSize()));
+        progress.setProgress(progressStatus);
 
         String questionString = quiz.generateQuestion();
 
