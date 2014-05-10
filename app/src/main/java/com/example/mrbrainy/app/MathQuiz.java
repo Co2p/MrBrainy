@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class MathQuiz {	
 	//Frågan och svaret
-	private String qe;
+	private String questionString;
 	private int answer;
 	Mode mode;
 	
@@ -19,11 +19,11 @@ public class MathQuiz {
 	}
 	
 	public String generateQuestion()throws Exception{
-        String qe;
+        String questionString;
 		switch(mode.getMode()){
 			case 1:
-				qe=easyQ();
-                return qe;
+				questionString=easyQ();
+                return questionString;
 			case 2:
 				throw new Exception("Wow you're clever!");
 		}
@@ -33,33 +33,33 @@ public class MathQuiz {
 	//Enklaste svårighetsgraden
 	private String easyQ(){
 		Random randomGenerator = new Random();
-		int randInt, q1, q2;
+		int randInt, var1, var2;
 		
 		//Olika fr�gor, t.ex. plus, minus och g�nger
 		randInt = randomGenerator.nextInt(2);
 		
 		//Generates the basenumbers for each question
-		q1 = randomGenerator.nextInt(20) - 10;
-		q2 = randomGenerator.nextInt(20) - 10;
+		var1 = randomGenerator.nextInt(20) - 10;
+		var2 = randomGenerator.nextInt(20) - 10;
 		//The questions
 		switch(randInt){
 			//plus
 			case 0:
-				answer = q1 + q2;
-				qe = (q1 + " + " + q2);
+				answer = var1 + var2;
+				questionString = (var1 + " + " + var2);
 				break;
 			//minus
 			case 1:
-				answer = q1 - q2;
-				qe = (q1 + " - " + q2);
+				answer = var1 - var2;
+				questionString = (var1 + " - " + var2);
 				break;
 			//multiplication
 			case 2:
-				answer = q1 * q2;
-				qe = (q1 + " * " + q2);
+				answer = var1 * var2;
+				questionString = (var1 + " * " + var2);
 				break;
 		}
-        return qe;
+        return questionString;
 	}
 	
 	//Generates a faulty answer within a window
