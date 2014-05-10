@@ -9,9 +9,12 @@ public class MathQuiz {
 	private int answer;
     private Random randomGenerator = new Random();
 	private Mode mode;
+    private int difficulty = 20;
+    private int level;
 	
 	public MathQuiz(){
 		mode = new Mode(5, 3, 2);
+        level = mode.getMode();
 		easyQ();
 	}
 	
@@ -41,21 +44,16 @@ public class MathQuiz {
 	
 	public String generateQuestion(){
         String questionString;
+        questionString=easyQ();
 
-
-		switch(mode.getMode()){
-			case 1:
-                questionString=easyQ();
-                return questionString;
-			case 2:
-				return "Wow you're clever!";
-		}
-        return "something's wrong";
+        if(!(level==mode.getMode())) {
+            difficulty = difficulty * 2;
+        }
+        return questionString;
 	}
 	
-	//Enklaste svårighetsgraden
+	//
 	private String easyQ(){
-        int difficulty = 20;
 
 		int randInt, var1, var2, var3;
 		
@@ -86,7 +84,11 @@ public class MathQuiz {
 				break;
             case 3:
                 answer = var1;
-                var3 = var1 * (randomGenerator.nextInt(difficulty/4) - difficulty/8);
+                var2=(randomGenerator.nextInt(difficulty/4) - difficulty/8);
+                var3 = var1 * var2;
+                System.out.println("var 1: " + var1);
+                System.out.println("var 2: " + var2);
+                System.out.println("var 3: " + var3);
                 questionString = qString(var3, "÷", var2);
 		}
         return questionString;
