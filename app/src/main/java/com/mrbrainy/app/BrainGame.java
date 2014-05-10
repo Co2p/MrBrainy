@@ -48,20 +48,22 @@ public class BrainGame extends ActionBarActivity {
         pageNr = (TextView) findViewById(R.id.questionNumber);
         pageNr.setText("Question " + pageNumber);
 
+        //Displays the current level
         levelText = (TextView) findViewById(R.id.level);
         levelText.setText("Level " + quiz.getMode().getMode());
 
-        //Randomizes the order of the answers
-        Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(5);
-
-        System.out.println("The answer is button number: " + (realAns+1) );
         setButtonText();
 
     }
 
-    //Randomizes the order of the answers
+    //Randomizes the order of the answers based on realAns
     private void setButtonText(){
+
+        Random altRandomizer = new Random();
+        realAns = altRandomizer.nextInt(5);
+
+        System.out.println("The answer is button number: " + (realAns+1) );
+
         if (realAns<1){
             alt1.setText(String.valueOf(quiz.getAnswer()));
             alt2.setText(String.valueOf(quiz.getFalseAns(quiz.getAnswer())));
@@ -128,8 +130,16 @@ public class BrainGame extends ActionBarActivity {
         //will add to the correct answers in the mode class, otherwise
         // it will remove.
     private void answerEvent(boolean ansBool) {
+        boolean newLvl;
         if (ansBool){
-            quiz.getMode().add();
+            newLvl = quiz.getMode().add();
+
+            /*if (newLvl){
+
+                switch (quiz.getMode().getMode()){
+
+                }
+            }*/
         }
         else
             quiz.getMode().remove();
