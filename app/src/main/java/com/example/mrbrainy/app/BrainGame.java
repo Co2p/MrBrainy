@@ -23,7 +23,7 @@ public class BrainGame extends ActionBarActivity {
     private MathQuiz quiz;
     private Queue alternatives;
     private Random altRandomizer;
-    //Texterna
+    //Texts
     private TextView qText, pageNr;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
