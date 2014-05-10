@@ -23,15 +23,13 @@ public class BrainGame extends ActionBarActivity {
     private MathQuiz quiz;
     private Queue alternatives;
     private Random altRandomizer;
-    private TextView qText;
-    private TextView pageNr;
-    private Button alt1;
-    private Button alt2;
-    private Button alt3;
-    private Button alt4;
-    private Button alt5;
+    //Texterna
+    private TextView qText, pageNr;
+    //AnswerButtons
+    private Button alt1, alt2, alt3, alt4, alt5;
 
     @Override
+    //Vad gör den här Gordon?!
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
@@ -55,6 +53,7 @@ public class BrainGame extends ActionBarActivity {
 
     }
 
+    //Generates a new question and adds it to the display
     protected void newQuestion() throws Exception {
         questionString = quiz.generateQuestion();
 
