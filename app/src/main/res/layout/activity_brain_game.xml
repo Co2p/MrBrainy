@@ -13,88 +13,90 @@
     android:gravity="top"
     android:longClickable="false">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/questionNumber"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textColor="#a9000000"
-        android:singleLine="false" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/question"
-        android:layout_below="@+id/questionNumber"
-        android:layout_marginTop="28dp"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textColor="#000"
-        android:singleLine="false"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/questionNumber"
+            android:layout_marginTop="20dp"
+            android:textColor="#a9000000"
+            android:singleLine="false"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/a1"
-        android:text="Blue"
-        android:background="#ff33b5e5"
-        android:layout_above="@+id/a5"
-        android:layout_centerHorizontal="true"
-        android:clickable="true"
-        android:layout_marginBottom="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/question"
+            android:layout_marginTop="28dp"
+            android:textSize="30sp"
+            android:textColor="#ff000000"
+            android:singleLine="false"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/a2"
-        android:text="Green"
-        android:background="#ff99cc00"
-        android:layout_above="@+id/a1"
-        android:layout_alignLeft="@+id/a1"
-        android:layout_alignStart="@+id/a1"
-        android:clickable="true"
-        android:layout_marginBottom="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a1"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/a3"
-        android:text="Red"
-        android:background="#ffff4444"
-        android:layout_above="@+id/a4"
-        android:layout_alignLeft="@+id/a1"
-        android:layout_alignStart="@+id/a1"
-        android:clickable="true"
-        android:layout_marginBottom="10dp" />
+            android:background="#ff33b5e5"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/a4"
-        android:text="Yellow"
-        android:background="#ffffbb33"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/a3"
-        android:layout_alignStart="@+id/a3"
-        android:layout_marginBottom="46dp"
-        android:clickable="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a2"
+            android:background="#ff99cc00"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="false" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/a5"
-        android:text="Purple"
-        android:background="#ffaa66cc"
-        android:layout_above="@+id/a3"
-        android:layout_alignLeft="@+id/a3"
-        android:layout_alignStart="@+id/a3"
-        android:clickable="true"
-        android:layout_marginBottom="10dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a3"
+            android:background="#ffff4444"
+            android:clickable="true"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a4"
+            android:background="#ffffbb33"
+            android:clickable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a5"
+            android:background="#ffaa66cc"
+            android:clickable="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
