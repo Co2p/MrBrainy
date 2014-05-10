@@ -101,48 +101,27 @@ public class BrainGame extends ActionBarActivity {
 
 
     public void button1(View v){
-        if (realAns==0){
-            quiz.getMode().add();
-
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==0);
     }
 
     public void button2(View v){
-        if (realAns==1){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==1);
     }
 
     public void button3(View v){
-        if (realAns==2){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==2);
     }
 
     public void button4(View v){
-        if (realAns==3){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==3);
     }
 
     public void button5(View v){
-        if (realAns==4){
+        answerEvent(realAns==4);
+    }
+
+    private void answerEvent(boolean ansBool) {
+        if (ansBool){
             quiz.getMode().add();
         }
         else
