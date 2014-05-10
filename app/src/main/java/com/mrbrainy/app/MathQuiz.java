@@ -85,7 +85,9 @@ public class MathQuiz {
             //divide
             case 3:
                 answer = var1;
-                var2=(randomGenerator.nextInt(difficulty/4) - difficulty/8)+1;
+                do {
+                    var2 = (randomGenerator.nextInt(difficulty / 4) - difficulty / 8) + 1;
+                }while (var2==0);
                 var3 = var1 * var2;
                 System.out.println("var 1: " + var1);
                 System.out.println("var 2: " + var2);
