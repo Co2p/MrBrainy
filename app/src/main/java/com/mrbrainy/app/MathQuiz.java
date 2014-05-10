@@ -41,9 +41,11 @@ public class MathQuiz {
 	
 	public String generateQuestion(){
         String questionString;
+
+
 		switch(mode.getMode()){
 			case 1:
-				questionString=easyQ();
+                questionString=easyQ();
                 return questionString;
 			case 2:
 				return "Wow you're clever!";
@@ -84,7 +86,7 @@ public class MathQuiz {
 				break;
             case 3:
                 answer = var1;
-                var3 = var1 * randomGenerator.nextInt(difficulty/4) - difficulty/8;
+                var3 = var1 * (randomGenerator.nextInt(difficulty/4) - difficulty/8);
                 questionString = qString(var3, "÷", var2);
 		}
         return questionString;
@@ -102,7 +104,6 @@ public class MathQuiz {
 
     //Returns the basenumbers for each question
     private int numGen(int difficulty){
-        int var = randomGenerator.nextInt(difficulty) - difficulty/2;
-        return var;
+        return randomGenerator.nextInt(difficulty) - difficulty/2;
     }
 }
