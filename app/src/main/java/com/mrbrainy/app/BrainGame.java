@@ -55,7 +55,7 @@ public class BrainGame extends ActionBarActivity {
         Random altRandomizer = new Random();
         realAns = altRandomizer.nextInt(5);
 
-        System.out.println(realAns);
+        System.out.println("The answer is button number: " + (realAns+1) );
         setButtonText();
 
     }
@@ -99,50 +99,36 @@ public class BrainGame extends ActionBarActivity {
         }
     }
 
-
+    //Catches a onClick event for the button alt1/R.id.a1
     public void button1(View v){
-        if (realAns==0){
-            quiz.getMode().add();
-
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==0);
     }
 
+    //Catches a onClick event for the button alt2/R.id.a2
     public void button2(View v){
-        if (realAns==1){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==1);
     }
 
+    //Catches a onClick event for the button alt3/R.id.a3
     public void button3(View v){
-        if (realAns==2){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==2);
     }
 
+    //Catches a onClick event for the button alt4/R.id.a4
     public void button4(View v){
-        if (realAns==3){
-            quiz.getMode().add();
-        }
-        else
-            quiz.getMode().remove();
-
-        newQuestion();
+        answerEvent(realAns==3);
     }
 
+    //Catches a onClick event for the button alt5/R.id.a5
     public void button5(View v){
-        if (realAns==4){
+        answerEvent(realAns==4);
+    }
+
+    //Processes all of the onClick events, catches a bool, of true it
+        //will add to the correct answers in the mode class, otherwise
+        // it will remove.
+    private void answerEvent(boolean ansBool) {
+        if (ansBool){
             quiz.getMode().add();
         }
         else
