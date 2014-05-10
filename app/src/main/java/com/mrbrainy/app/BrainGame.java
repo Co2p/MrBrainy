@@ -1,6 +1,5 @@
 package com.mrbrainy.app;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
@@ -133,20 +131,22 @@ public class BrainGame extends ActionBarActivity {
     }
 
     //Processes all of the onClick events, catches a bool, of true it
-        //will add to the correct answers in the mode class, otherwise
-        // it will remove.
+        //will add to the correct answers in the mode class, otherwise it will remove.
     private void answerEvent(boolean ansBool) {
         Drawable drawable;
 
+        Toast toast;
         CharSequence textRight = "RIGHT!";
         CharSequence textWrong = "Wrong";
         int duration = Toast.LENGTH_SHORT;
+
+        System.out.println("tost: " + duration);
 
         if (ansBool){
             System.out.println("RIGHT ANSWER!");
             quiz.getMode().add();
 
-            Toast toast = Toast.makeText(this, textRight, duration);
+            toast = Toast.makeText(this, textRight, duration);
             toast.show();
 
             //Changes the background depending on the level
@@ -188,7 +188,7 @@ public class BrainGame extends ActionBarActivity {
         }
         else {
             quiz.getMode().remove();
-            Toast toast = Toast.makeText(this, textWrong, duration);
+            toast = Toast.makeText(this, textWrong, duration);
             toast.show();
 
             System.out.println("WRONG ANSWER!");
