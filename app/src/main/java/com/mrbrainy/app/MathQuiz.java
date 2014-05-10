@@ -47,7 +47,8 @@ public class MathQuiz {
         questionString=easyQ();
 
         if(!(level==mode.getMode())) {
-            difficulty = difficulty * 2;
+            difficulty = difficulty/2 + difficulty;
+            level=mode.getMode();
         }
         return questionString;
 	}
@@ -75,9 +76,8 @@ public class MathQuiz {
 			case 1:
 				answer = var1 - var2;
 				questionString = qString(var1, "-", var2);
-
 				break;
-			//multiplication
+			//multiply
 			case 2:
 				answer = var1 * var2;
 				questionString = qString(var1, "×", var2);
