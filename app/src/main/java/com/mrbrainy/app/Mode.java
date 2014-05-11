@@ -2,44 +2,45 @@ package com.mrbrainy.app;
 
 public class Mode {
 	//Difficuly
-	private int mode = 0;
-	private int ENHmax;
-	private int correctQ;
+	private int progress = 0;
+	private int maxLevel;
+	private int streak;
 	private int faultMode = 0;
-	private int faultQ;
+	private int falseQ;
 	public int level = 0;
-	
-	//max är hur många svårighetsgrader det finns (börjar på 0)
-	//och qGoal är hur många frågor som behövs besvaras rätt för att
-	//det ska gå över till nästa svårighetsgrad
-	//falseQ är hur många fel användaren kan svara innan den hoppar tillbaks
-	//ett snäpp i svårighetsgraden
-	public Mode(int maxLevels, int qGoal, int falseQ){
-		ENHmax = maxLevels-1;
-		correctQ = qGoal;
-		faultQ = falseQ;
+
+    //maxLevel decides how many levels there are (starting at 0)
+    //streak decides how long a streak needs to be to reach the next level
+    //falseQ decides how many mistakes the user kan make before the level is lowered
+	public Mode(int newMaxLevel, int newStreak, int newFalseQ){
+		maxLevel = newMaxLevel-1;
+		streak = newStreak;
+		falseQ = newFalseQ;
 	}
 
-	//lägger till för varje korrekt fråga,
+    //adds to progress until progress == streak, then the level is raised
+    // and the mistakes are reset
 	public boolean add(){
 		faultMode = 0;
-		mode++;
-		if(mode >= correctQ){
-			mode = 0;
-			if(level < ENHmax){
+		progress++;
+		if(progress >= streak){
+			progress = 0;
+            faultMode = 0;
+			if(level < maxLevel){
 				level++;
-                return true;
 			}
+            else
+                return true;
 		}
         return false;
 	}
 
-	//om användaren svarar fel, sätt antal rätt svarade frågor till 0
-	//ändra även så att om avändaren skrivit ett antal fel svar på raken
-	//så gå bakåt ett steg i svårighetsgraden
+    //if the user answers wrong the progress is reset, if there have been a falseQ
+    //number of mistakes the level is lowered
 	public void remove(){
-		mode = 0;
-		if(faultMode >= faultQ && level > 0){
+		progress = 0;
+        faultMode++;
+		if(faultMode >= falseQ && level > 0){
 			level--;
 		}
 	}
@@ -48,11 +49,11 @@ public class Mode {
 		return level+1;
 	}
 
-    public int getProgressToNext(){
-        return mode;
+    public int getProgress(){
+        return progress;
     }
 
     public int getStepSize(){
-        return correctQ;
+        return streak;
     }
 }

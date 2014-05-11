@@ -56,8 +56,9 @@ public class BrainGame extends ActionBarActivity {
     //Generates a new question and adds it to the display
     protected void newQuestion(){
         pageNumber++;
-        progressStatus = ((quiz.getMode().getProgressToNext()*100)/(quiz.getMode().getStepSize()));
-        System.out.println(quiz.getMode().getProgressToNext());
+
+        progressStatus = ((quiz.getMode().getProgress()*100)/(quiz.getMode().getStepSize()));
+        System.out.println(quiz.getMode().getProgress());
         System.out.println(quiz.getMode().getStepSize());
         System.out.println(progressStatus);
         progress.setProgress(progressStatus);
@@ -160,8 +161,6 @@ public class BrainGame extends ActionBarActivity {
             //Changes the background depending on the level
             switch (quiz.getMode().getMode()){
 
-
-
                 case 1:
                     drawable = resources.getDrawable(R.drawable.bglevel1);
                     linearLayout.setBackground(drawable);
@@ -174,7 +173,6 @@ public class BrainGame extends ActionBarActivity {
 
 
                 case 3:
-
                     drawable = resources.getDrawable(R.drawable.bglevel3);
                     linearLayout.setBackground(drawable);
                     break;
