@@ -2,7 +2,6 @@ package com.mrbrainy.app;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -150,7 +149,6 @@ public class BrainGame extends ActionBarActivity {
 
         //if this is true the max level has been reached
         boolean endOfGame=false;
-        Drawable drawable;
 
         Toast toast;
         CharSequence textRight = "RIGHT!";
@@ -163,57 +161,9 @@ public class BrainGame extends ActionBarActivity {
 
             toast = Toast.makeText(this, textRight, duration);
             toast.show();
-
             //Changes the background depending on the level
-            switch (quiz.getMode().getMode()){
+            SharedInterface.setBackground(quiz.getMode().getMode(), linearLayout, resources);
 
-                case 1:
-                    drawable = resources.getDrawable(R.drawable.bglevel1);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                case 2:
-                    drawable = resources.getDrawable(R.drawable.bglevel2);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-
-                case 3:
-                    drawable = resources.getDrawable(R.drawable.bglevel3);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-
-                case 4:
-                    drawable = resources.getDrawable(R.drawable.bglevel4);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                case 5:
-                    drawable = resources.getDrawable(R.drawable.bglevel5);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                case 6:
-                    drawable = resources.getDrawable(R.drawable.bglevel6);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                case 7:
-                    drawable = resources.getDrawable(R.drawable.bglevel7);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                case 8:
-                    drawable = resources.getDrawable(R.drawable.bglevel8);
-                    linearLayout.setBackground(drawable);
-                    break;
-
-                default:
-                    drawable = resources.getDrawable(R.drawable.bglevel9);
-                    linearLayout.setBackground(drawable);
-                    break;
-            }
         }
         else {
             quiz.getMode().remove();
