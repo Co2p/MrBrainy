@@ -1,5 +1,6 @@
 package com.mrbrainy.app;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +28,8 @@ public class BrainGame extends ActionBarActivity {
     private Resources resources;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
+    //This sends stuff to QuizFollowup
+    public final static String LEVEL_INFO = "com.mrbrainy.app.LEVEL_INFO";
 
     //Constructor... creates a relativeLayout variable, resources variable and a new game (quiz)
         //initiates the buttons and the question number.
@@ -38,7 +41,9 @@ public class BrainGame extends ActionBarActivity {
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
 
-        quiz = new MathQuiz();
+        //Creates a quiz object with 7 levels, a streak of 3 to level up,
+        // and two mistakes to loose level.
+        quiz = new MathQuiz(2, 3, 2);
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
@@ -58,9 +63,6 @@ public class BrainGame extends ActionBarActivity {
         pageNumber++;
 
         progressStatus = ((quiz.getMode().getProgress()*100)/(quiz.getMode().getStepSize()));
-        System.out.println(quiz.getMode().getProgress());
-        System.out.println(quiz.getMode().getStepSize());
-        System.out.println(progressStatus);
         progress.setProgress(progressStatus);
 
         String questionString = quiz.generateQuestion();
@@ -89,7 +91,6 @@ public class BrainGame extends ActionBarActivity {
         Random altRandomizer = new Random();
         realAns = altRandomizer.nextInt(5);
 
-        System.out.println("The answer is button number: " + (realAns+1) );
         answers.add(0, String.valueOf(quiz.getAnswer()));
 
         //Randomize in faulty answers into array
@@ -107,6 +108,7 @@ public class BrainGame extends ActionBarActivity {
 
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
+        System.out.println("The answer is button number: " + (realAns+1) );
 
         //Insert answers into game
         alt1.setText(answers.get(0));
@@ -143,7 +145,11 @@ public class BrainGame extends ActionBarActivity {
 
     //Processes all of the onClick events, catches a bool, of true it
         //will add to the correct answers in the mode class, otherwise it will remove.
+        // If the max level has been reached, the activity QuizFollowup will be called
     private void answerEvent(boolean ansBool) {
+
+        //if this is true the max level has been reached
+        boolean endOfGame=false;
         Drawable drawable;
 
         Toast toast;
@@ -152,8 +158,8 @@ public class BrainGame extends ActionBarActivity {
         int duration = Toast.LENGTH_SHORT;
 
         if (ansBool){
-            System.out.println("RIGHT ANSWER!");
-            quiz.getMode().add();
+            System.out.println(textRight);
+            endOfGame=quiz.getMode().add();
 
             toast = Toast.makeText(this, textRight, duration);
             toast.show();
@@ -207,7 +213,6 @@ public class BrainGame extends ActionBarActivity {
                     drawable = resources.getDrawable(R.drawable.bglevel9);
                     linearLayout.setBackground(drawable);
                     break;
-
             }
         }
         else {
@@ -215,8 +220,15 @@ public class BrainGame extends ActionBarActivity {
             toast = Toast.makeText(this, textWrong, duration);
             toast.show();
 
-            System.out.println("WRONG ANSWER!");
+            System.out.println(textWrong);
         }
+
+        if (endOfGame){
+            Intent intent = new Intent(this, QuizFollowup.class);
+            intent.putExtra(LEVEL_INFO, quiz.getMode().getMode());
+            startActivity(intent);
+        }
+
         newQuestion();
     }
 }

@@ -11,10 +11,11 @@ public class MathQuiz {
 	private Mode mode;
     private int difficulty = 20;
     private int level;
-	
-	public MathQuiz(){
-		mode = new Mode(5, 3, 2);
-        level = mode.getMode();
+
+    //
+	public MathQuiz(int maxL, int streak, int falseQ ){
+		mode = new Mode(maxL, streak, falseQ);
+        level = maxL;
 		easyQ();
 	}
 	

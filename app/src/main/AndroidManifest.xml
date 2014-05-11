@@ -6,14 +6,14 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.AppCompat"
-        android:screenOrientation="portrait" >
-
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat" >
         <activity
             android:name="com.mrbrainy.app.Start"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -21,6 +21,11 @@
         <activity
             android:name="com.mrbrainy.app.BrainGame"
             android:label="@string/title_activity_brain_game" >
+        </activity>
+
+        <activity
+            android:name="com.mrbrainy.app.QuizFollowup"
+            android:label="@string/title_activity_quiz_followup" >
         </activity>
     </application>
 
