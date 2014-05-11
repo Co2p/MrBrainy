@@ -5,8 +5,6 @@ import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 
@@ -29,7 +27,14 @@ public class QuizFollowup extends ActionBarActivity {
     private void setBackground(){
         Drawable drawable;
 
-        switch (Integer.valueOf(BrainGame.LEVEL_INFO)){
+
+
+        Intent intent = new Intent();
+        long caseNr = intent.getLongExtra(BrainGame.LEVEL_INFO, -1);
+
+        System.out.println(caseNr);
+
+        switch ((int) caseNr){
 
             case 1:
                 drawable = resources.getDrawable(R.drawable.bglevel1);

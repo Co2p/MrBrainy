@@ -226,6 +226,7 @@ public class BrainGame extends ActionBarActivity {
         if (endOfGame){
             Intent intent = new Intent(this, QuizFollowup.class);
             intent.putExtra(LEVEL_INFO, quiz.getMode().getMode());
+
             startActivity(intent);
         }
 
