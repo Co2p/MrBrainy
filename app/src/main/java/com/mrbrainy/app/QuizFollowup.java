@@ -21,6 +21,7 @@ public class QuizFollowup extends ActionBarActivity {
 
         int caseNr = intent.getIntExtra(BrainGame.LEVEL_INFO, -1);
         SharedInterface.setBackground(caseNr, linearLayout, resources);
+    }
 
     }
 
