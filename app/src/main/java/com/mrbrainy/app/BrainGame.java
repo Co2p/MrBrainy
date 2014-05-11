@@ -86,10 +86,6 @@ public class BrainGame extends ActionBarActivity {
         //Puts the real answer inte an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
-        Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(5);
-
-        System.out.println("The answer is button number: " + (realAns+1) );
         answers.add(0, String.valueOf(quiz.getAnswer()));
 
         //Randomize in faulty answers into array
@@ -107,6 +103,7 @@ public class BrainGame extends ActionBarActivity {
 
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
+        System.out.println("The answer is button number: " + (realAns+1) );
 
         //Insert answers into game
         alt1.setText(answers.get(0));
