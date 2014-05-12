@@ -23,6 +23,4 @@ public class QuizFollowup extends ActionBarActivity {
         SharedInterface.setBackground(caseNr, linearLayout, resources);
     }
 
-    }
-
 }
