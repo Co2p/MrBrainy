@@ -9,7 +9,7 @@ import android.content.Intent;
 
 public class Start extends ActionBarActivity {
     public void startGame(View view){
-        Intent intent = new Intent(this, BrainGame.class);
+        Intent intent = new Intent(this, MainGame.class);
         startActivity(intent);
     }
 

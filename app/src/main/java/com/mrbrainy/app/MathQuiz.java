@@ -16,7 +16,7 @@ public class MathQuiz {
 	public MathQuiz(int maxL, int streak, int falseQ ){
 		mode = new Mode(maxL, streak, falseQ);
         level = maxL;
-		easyQ();
+		questionGen();
 	}
 	
 	public int getAnswer(){
@@ -45,7 +45,7 @@ public class MathQuiz {
 	
 	public String generateQuestion(){
         String questionString;
-        questionString=easyQ();
+        questionString=questionGen();
 
         if(!(level==mode.getMode())) {
             difficulty = difficulty/2 + difficulty;
@@ -55,7 +55,7 @@ public class MathQuiz {
 	}
 	
 	//
-	private String easyQ(){
+	private String questionGen(){
 
 		int randInt, var1, var2, var3;
 

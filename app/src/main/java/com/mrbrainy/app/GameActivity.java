@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.Collections;
 
 
-public class BrainGame extends ActionBarActivity {
+public class GameActivity extends ActionBarActivity {
 
     protected int pageNumber;
     private int realAns;
@@ -42,7 +42,7 @@ public class BrainGame extends ActionBarActivity {
 
         //Creates a quiz object with 7 levels, a streak of 3 to level up,
         // and two mistakes to loose level.
-        quiz = new MathQuiz(7, 3, 2);
+        quiz = new MathQuiz(7, 5, 2);
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
