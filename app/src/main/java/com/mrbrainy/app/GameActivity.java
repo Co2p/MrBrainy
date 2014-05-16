@@ -174,7 +174,7 @@ public class GameActivity extends ActionBarActivity {
         }
 
         if (endOfGame){
-            Intent intent = new Intent(this, QuizFollowup.class);
+            Intent intent = new Intent(this, FollowupActivity.class);
             intent.putExtra(LEVEL_INFO, quiz.getMode().getMode());
 
             startActivity(intent);
