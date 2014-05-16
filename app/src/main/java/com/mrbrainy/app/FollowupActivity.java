@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 
-public class QuizFollowup extends ActionBarActivity {
+public class FollowupActivity extends ActionBarActivity {
     private Resources resources;
     private LinearLayout linearLayout;
 
@@ -19,7 +19,7 @@ public class QuizFollowup extends ActionBarActivity {
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         Intent intent = getIntent();
 
-        int caseNr = intent.getIntExtra(BrainGame.LEVEL_INFO, -1);
+        int caseNr = intent.getIntExtra(GameActivity.LEVEL_INFO, -1);
         SharedInterface.setBackground(caseNr, linearLayout, resources);
     }
 
