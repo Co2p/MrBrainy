@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
  */
 public class SharedInterface {
 
-
-
     public static void setBackground(int caseNr, LinearLayout linearLayout, Resources resources){
         Drawable drawable;
 

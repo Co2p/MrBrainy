@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -20,7 +21,7 @@ public class GameActivity extends ActionBarActivity {
     protected int pageNumber;
     private int realAns;
     private MathQuiz quiz;
-    private TextView qText, pageNr, levelText;
+    private TextView qText, pageNr, levelText, qTimer;
     private LinearLayout linearLayout;
     private int progressStatus = 0;
     private ProgressBar progress;
@@ -40,7 +41,7 @@ public class GameActivity extends ActionBarActivity {
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
 
-        //Creates a quiz object with 7 levels, a streak of 3 to level up,
+        //Creates a quiz object with 7 levels, a streak of 5 to level up,
         // and two mistakes to loose level.
         quiz = new MathQuiz(7, 5, 2);
         pageNumber = 0;
@@ -55,6 +56,21 @@ public class GameActivity extends ActionBarActivity {
         alt5 = (Button)findViewById(R.id.a5);
 
         newQuestion();
+
+        //Timer for question (10 secs)
+        new CountDownTimer(10000, 1000) {
+            //Render text everytime the timer counts down one second
+            public void onTick(long mill) {
+                qTimer = (TextView) findViewById(R.id.timer);
+                qTimer.setText("" + mill / 1000);
+            }
+            //When finished, set the question marked as false and move
+            //on to the next question
+            public void onFinish() {
+                answerEvent(false);
+            }
+        }.start();
+
     }
 
     //Generates a new question and adds it to the display
@@ -84,7 +100,7 @@ public class GameActivity extends ActionBarActivity {
 
     //Randomizes the order of the answers
     private void setButtonText(){
-        //Puts the real answer inte an array and inserts several faulty answers aswell
+        //Puts the real answer into an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
         Random altRandomizer = new Random();
