@@ -30,6 +30,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/timerShow"
+            android:text="BAJS"
+            android:layout_marginTop="28dp"
+            android:textSize="30sp"
+            android:textColor="#ff000000"
+            android:singleLine="false"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/question"
             android:layout_marginTop="28dp"
             android:textSize="30sp"

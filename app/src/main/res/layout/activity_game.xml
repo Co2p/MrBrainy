@@ -24,7 +24,8 @@
             android:layout_height="fill_parent"
             android:background="@drawable/bglevel1"
             android:tileMode="repeat"
-            android:id="@+id/linearLayout">
+            android:id="@+id/linearLayout"
+            android:weightSum="1">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,12 +118,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/timer"
-                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 

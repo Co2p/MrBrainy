@@ -26,6 +26,7 @@ public class GameActivity extends ActionBarActivity {
     private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
+    CountDownTimer timeFunc;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5;
     //This sends stuff to QuizFollowup
@@ -44,6 +45,10 @@ public class GameActivity extends ActionBarActivity {
         //Creates a quiz object with 7 levels, a streak of 5 to level up,
         // and two mistakes to loose level.
         quiz = new MathQuiz(7, 5, 2);
+
+        //Creates a new timer with 10 seconds
+        timer(10000);
+
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
@@ -56,13 +61,14 @@ public class GameActivity extends ActionBarActivity {
         alt5 = (Button)findViewById(R.id.a5);
 
         newQuestion();
+    }
 
+    private void timer(int time){
         //Timer for question (10 secs)
-        new CountDownTimer(10000, 1000) {
+        timeFunc = new CountDownTimer(time, 1000){
             //Render text everytime the timer counts down one second
             public void onTick(long mill) {
-                qTimer = (TextView) findViewById(R.id.timer);
-                qTimer.setText("" + mill / 1000);
+                qTimer.setText("tid = " + mill / 1000);
             }
             //When finished, set the question marked as false and move
             //on to the next question
@@ -70,12 +76,16 @@ public class GameActivity extends ActionBarActivity {
                 answerEvent(false);
             }
         }.start();
+    }
 
+    private void timerReset(){
+        timeFunc.start();
     }
 
     //Generates a new question and adds it to the display
     protected void newQuestion(){
         pageNumber++;
+        qTimer = (TextView) findViewById(R.id.timerShow);
 
         progressStatus = ((quiz.getMode().getProgress()*100)/(quiz.getMode().getStepSize()));
         progress.setProgress(progressStatus);
@@ -95,6 +105,9 @@ public class GameActivity extends ActionBarActivity {
         levelText.setText("Level " + quiz.getMode().getMode());
 
         setButtonText();
+
+        //set new timer
+        timerReset();
 
     }
 
