@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class GameActivity extends ActionBarActivity {
     private int realAns;
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText, qTimer;
-    private LinearLayout linearLayout;
+    private RelativeLayout relativeLayout;
     private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
@@ -39,7 +40,7 @@ public class GameActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
-        linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
+        relativeLayout  = (RelativeLayout) findViewById(R.id.relativeLayout);
         resources = getResources();
 
         //Creates a quiz object with 7 levels, a streak of 5 to level up,
@@ -94,15 +95,15 @@ public class GameActivity extends ActionBarActivity {
 
         //Displays the question
         qText = (TextView) findViewById(R.id.question);
-        qText.setText("Vad är: " + questionString + "?");
+        qText.setText(R.string.what_is_q + " " + questionString + "?");
 
         //Displays the question number
         pageNr = (TextView) findViewById(R.id.questionNumber);
-        pageNr.setText("Question " + pageNumber);
+        pageNr.setText(R.string.question_nr + pageNumber);
 
         //Displays the current level
         levelText = (TextView) findViewById(R.id.level);
-        levelText.setText("Level " + quiz.getMode().getMode());
+        levelText.setText(R.string.level + quiz.getMode().getMode());
 
         setButtonText();
 
@@ -190,8 +191,6 @@ public class GameActivity extends ActionBarActivity {
 
             toast = Toast.makeText(this, textRight, duration);
             toast.show();
-            //Changes the background depending on the level
-            SharedInterface.setBackground(quiz.getMode().getMode(), linearLayout, resources);
 
         }
         else {
@@ -209,6 +208,15 @@ public class GameActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
+        //Changes the background depending on the level
+        SharedInterface.setBackground(quiz.getMode().getMode(), relativeLayout, resources);
+
         newQuestion();
+    }
+
+    //Tror att det här kan lösa "paus menyn"
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }

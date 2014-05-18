@@ -8,12 +8,15 @@
     <string name="info">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
     <string name="title_activity_brain_game">Math Quiz</string>
     <string name="title_activity_quiz_followup">QuizFollowup</string>
+    <string name="what_is_q">What is</string>
+    <string name="question_nr">Question</string>
+    <string name="level">Level</string>
+
     //About activity strings
     <string name="title_activity_about">About</string>
     <string name="cool_button">Cool Stuff!</string>
     <string name="info_content">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
     <string name="title_activity_game">Math Quiz</string>
-    <string name="dummy_button">Dummy Button</string>
     <string name="title_activity_game_fullscreen">GameFullscreenActivity</string>
     <string name="timer">Timer placeholder</string>
 

@@ -1,13 +1,18 @@
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.mrbrainy.app.BrainGame"
-        style="@style/AppTheme"
-        android:gravity="top"
-        android:longClickable="false"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mrbrainy.app.BrainGame"
+    style="@style/AppTheme"
+    android:longClickable="false"
+    android:id="@+id/relativeLayout"
+    android:gravity="top"
+    android:background="@drawable/bglevel1">
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/bglevel1"
         android:tileMode="repeat"
         android:id="@+id/linearLayout">
 
@@ -114,17 +119,19 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp" />
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:id="@+id/progressBar"
-            android:animationResolution="@android:integer/config_mediumAnimTime"
-            android:background="#ff000000"
-            android:clickable="false"
-            android:layout_marginTop="28dp" />
     </LinearLayout>
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:id="@+id/progressBar"
+        android:layout_gravity="center_horizontal"
+        android:animationResolution="@android:integer/config_mediumAnimTime"
+        android:background="#ff000000"
+        android:layout_alignParentBottom="true"
+        android:clickable="false" />
 
 
+</RelativeLayout>

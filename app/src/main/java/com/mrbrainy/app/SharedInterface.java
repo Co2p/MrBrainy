@@ -2,7 +2,7 @@ package com.mrbrainy.app;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 /**
  * Created by gordon on 11/05/14.
@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
  */
 public class SharedInterface {
 
-    public static void setBackground(int caseNr, LinearLayout linearLayout, Resources resources){
+    public static void setBackground(int caseNr, RelativeLayout relativeLayout, Resources resources){
         Drawable drawable;
 
 
@@ -20,49 +20,49 @@ public class SharedInterface {
 
             case 1:
                 drawable = resources.getDrawable(R.drawable.bglevel1);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             case 2:
                 drawable = resources.getDrawable(R.drawable.bglevel2);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
 
             case 3:
                 drawable = resources.getDrawable(R.drawable.bglevel3);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
 
             case 4:
                 drawable = resources.getDrawable(R.drawable.bglevel4);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             case 5:
                 drawable = resources.getDrawable(R.drawable.bglevel5);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             case 6:
                 drawable = resources.getDrawable(R.drawable.bglevel6);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             case 7:
                 drawable = resources.getDrawable(R.drawable.bglevel7);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             case 8:
                 drawable = resources.getDrawable(R.drawable.bglevel8);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
 
             default:
                 drawable = resources.getDrawable(R.drawable.bglevel9);
-                linearLayout.setBackground(drawable);
+                relativeLayout.setBackground(drawable);
                 break;
         }
     }
