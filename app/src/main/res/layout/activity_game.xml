@@ -35,17 +35,27 @@
                 android:layout_marginTop="20dp"
                 android:textColor="#a9000000"
                 android:singleLine="false"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:text="Q nr placeholder" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/question"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="8dp"
                 android:textSize="30sp"
                 android:textColor="#ff000000"
                 android:singleLine="false"
+                android:layout_gravity="center_horizontal"
+                android:text="Q" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff000000"
+                android:text="timer"
+                android:id="@+id/timerShow"
                 android:layout_gravity="center_horizontal" />
 
             <Button
@@ -116,7 +126,9 @@
                 android:id="@+id/level"
                 android:textColor="#d0000000"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp" />
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="30dp"
+                android:text="Level nr" />
 
 
         </LinearLayout>

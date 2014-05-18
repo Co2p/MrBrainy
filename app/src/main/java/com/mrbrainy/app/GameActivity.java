@@ -1,5 +1,6 @@
 package com.mrbrainy.app;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
@@ -31,6 +32,8 @@ public class GameActivity extends ActionBarActivity {
     private Button alt1, alt2, alt3, alt4, alt5;
     //This sends stuff to QuizFollowup
     public final static String LEVEL_INFO = "com.mrbrainy.app.LEVEL_INFO";
+
+
 
     //Constructor... creates a relativeLayout variable, resources variable and a new game (quiz)
         //initiates the buttons and the question number.
@@ -84,6 +87,7 @@ public class GameActivity extends ActionBarActivity {
 
     //Generates a new question and adds it to the display
     protected void newQuestion(){
+
         pageNumber++;
         qTimer = (TextView) findViewById(R.id.timerShow);
 
@@ -94,15 +98,15 @@ public class GameActivity extends ActionBarActivity {
 
         //Displays the question
         qText = (TextView) findViewById(R.id.question);
-        qText.setText(R.string.what_is_q + " " + questionString + "?");
+        qText.setText(getResources().getString(R.string.what_is_q) + " " + questionString + "?");
 
         //Displays the question number
         pageNr = (TextView) findViewById(R.id.questionNumber);
-        pageNr.setText(R.string.question_nr + pageNumber);
+        pageNr.setText(getResources().getString(R.string.question_nr) + " " + pageNumber);
 
         //Displays the current level
         levelText = (TextView) findViewById(R.id.level);
-        levelText.setText(R.string.level + quiz.getMode().getMode());
+        levelText.setText(getResources().getString(R.string.level) + quiz.getMode().getMode());
 
         setButtonText();
 
@@ -189,13 +193,13 @@ public class GameActivity extends ActionBarActivity {
             endOfGame=quiz.getMode().add();
 
             toast = Toast.makeText(this, textRight, duration);
-            toast.show();
+            //toast.show();
 
         }
         else {
             quiz.getMode().remove();
             toast = Toast.makeText(this, textWrong, duration);
-            toast.show();
+            //toast.show();
 
             System.out.println(textWrong);
         }
@@ -216,6 +220,6 @@ public class GameActivity extends ActionBarActivity {
     //Tror att det här kan lösa "paus menyn"
     @Override
     public void onBackPressed() {
-
+        DialogFragment quit_Q = new QuitDialog();
     }
 }
