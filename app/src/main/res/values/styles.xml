@@ -2,8 +2,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen">
-        <item name="android:textColor">#000</item>
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:windowActionBar">false</item>
         <!-- Customize your theme here. -->
     </style>
 

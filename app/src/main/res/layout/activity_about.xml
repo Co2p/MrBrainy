@@ -21,6 +21,7 @@
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
@@ -35,14 +36,15 @@
             tools:ignore="UselessParent">
 
             <Button android:id="@+id/cool_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+                style="@style/ButtonBarButton"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/cool_button"
-                android:onClick="coolButton" />
-
+                android:onClick="coolButton"
+                android:singleLine="false"
+                android:layout_gravity="bottom" />
         </LinearLayout>
+
     </FrameLayout>
 
 </FrameLayout>

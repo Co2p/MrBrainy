@@ -9,7 +9,7 @@
     </style>
 
     <style name="FullscreenActionBarStyle" parent="android:Widget.Holo.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
+        <item name="android:background">#ff54b4d6</item>
     </style>
 
 </resources>

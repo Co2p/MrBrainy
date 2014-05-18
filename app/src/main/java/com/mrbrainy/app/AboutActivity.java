@@ -35,7 +35,7 @@ public class AboutActivity extends Activity {
      * If set, will toggle the system UI visibility upon interaction. Otherwise,
      * will show the system UI visibility upon interaction.
      */
-    private static final boolean TOGGLE_ON_CLICK = true;
+    private static final boolean TOGGLE_ON_CLICK = false;
 
     /**
      * The flags to pass to {@link SystemUiHider#getInstance}.
@@ -60,8 +60,7 @@ public class AboutActivity extends Activity {
         // this activity.
         mSystemUiHider = SystemUiHider.getInstance(this, contentView, HIDER_FLAGS);
         mSystemUiHider.setup();
-        mSystemUiHider
-                .setOnVisibilityChangeListener(new SystemUiHider.OnVisibilityChangeListener() {
+        mSystemUiHider.setOnVisibilityChangeListener(new SystemUiHider.OnVisibilityChangeListener() {
                     // Cached values.
                     int mControlsHeight;
                     int mShortAnimTime;
@@ -81,9 +80,8 @@ public class AboutActivity extends Activity {
                                 mShortAnimTime = getResources().getInteger(
                                         android.R.integer.config_shortAnimTime);
                             }
-                            controlsView.animate()
-                                    .translationY(visible ? 0 : mControlsHeight)
-                                    .setDuration(mShortAnimTime);
+
+                            //controlsView.animate().translationY(visible ? 0 : mControlsHeight).setDuration(mShortAnimTime);
                         } else {
                             // If the ViewPropertyAnimator APIs aren't
                             // available, simply show or hide the in-layout UI
@@ -96,7 +94,9 @@ public class AboutActivity extends Activity {
                             delayedHide(AUTO_HIDE_DELAY_MILLIS);
                         }
                     }
-                });
+                }
+
+        );
 
         // Set up the user interaction to manually show or hide the system UI.
         contentView.setOnClickListener(new View.OnClickListener() {
