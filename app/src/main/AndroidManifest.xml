@@ -21,7 +21,7 @@
             android:name="com.mrbrainy.app.GameActivity"
             android:label="@string/title_activity_brain_game"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name="com.mrbrainy.app.FollowupActivity"
@@ -34,6 +34,7 @@
             android:label="@string/title_activity_about"
             android:theme="@style/FullscreenTheme" >
         </activity>
+
     </application>
 
 </manifest>

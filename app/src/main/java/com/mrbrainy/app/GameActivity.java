@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -217,6 +216,6 @@ public class GameActivity extends ActionBarActivity {
     //Tror att det här kan lösa "paus menyn"
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
     }
 }
