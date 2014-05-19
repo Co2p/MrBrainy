@@ -63,11 +63,13 @@ public class GameActivity extends ActionBarActivity {
         alt5 = (Button)findViewById(R.id.a5);
         alt6 = (Button)findViewById(R.id.a6);
 
+        System.out.println("Generating new question...");
         newQuestion();
     }
 
     private void timer(final int time){
         //Timer for question (10 secs)
+        System.out.println("Timer initierad");
         timeFunc = new CountDownTimer(time, 100){
             //Render text everytime the timer counts down one second
             public void onTick(long mill) {
@@ -84,12 +86,13 @@ public class GameActivity extends ActionBarActivity {
     }
 
     private void timerReset(){
+        System.out.println("Resetting timer...");
         timeFunc.start();
     }
 
     //Generates a new question and adds it to the display
     protected void newQuestion(){
-
+        System.out.println("Creating question strings...");
         pageNumber++;
 
         String questionString = quiz.generateQuestion();
@@ -109,6 +112,7 @@ public class GameActivity extends ActionBarActivity {
         setButtonText();
 
         //set new timer
+        System.out.println("Setting the timer...");
         timerReset();
 
     }
@@ -118,28 +122,29 @@ public class GameActivity extends ActionBarActivity {
         //Puts the real answer into an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
-        Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(6);
-
         answers.add(0, String.valueOf(quiz.getAnswer()));
+
+        System.out.println("Randomizing faulty answers...");
 
         //Randomize in faulty answers into array
         for(int i = 1; i < 6; i++){
+            System.out.println("Randomizing question: " + i);
             String fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
             while(answers.contains(fault)){
+                System.out.println("Already in array!");
                 fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
             }
             answers.add(i, fault);
         }
-
+        System.out.println("Shufflin' array");
         //Shuffle the array
         long seed = System.nanoTime();
         Collections.shuffle(answers, new Random(seed));
-
+        System.out.println("Inserting real answer position");
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
         System.out.println("The answer is button number: " + (realAns+1) );
-
+        System.out.println("Inserting answers into game...");
         //Insert answers into game
         alt1.setText(answers.get(0));
         alt2.setText(answers.get(1));
