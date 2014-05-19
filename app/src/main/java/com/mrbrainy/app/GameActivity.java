@@ -26,6 +26,7 @@ public class GameActivity extends ActionBarActivity {
     private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
+    private Wait wait = new Wait();
     CountDownTimer timeFunc;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5, alt6;
@@ -92,6 +93,8 @@ public class GameActivity extends ActionBarActivity {
 
     //Generates a new question and adds it to the display
     protected void newQuestion(){
+        resetButtons();
+
         System.out.println("Creating question strings...");
         pageNumber++;
 
@@ -154,34 +157,85 @@ public class GameActivity extends ActionBarActivity {
         alt6.setText(answers.get(5));
     }
 
+    //Puts the colour back on the buttons
+    //Should these be randomized?
+    private void resetButtons(){
+        alt1.setBackgroundResource(R.drawable.redbutton);
+        alt2.setBackgroundResource(R.drawable.yellowbutton);
+        alt3.setBackgroundResource(R.drawable.bluebutton);
+        alt4.setBackgroundResource(R.drawable.cyanbutton);
+        alt5.setBackgroundResource(R.drawable.greenbutton);
+        alt6.setBackgroundResource(R.drawable.pinkbutton);
+    }
+
     //Catches a onClick event for the button alt1/R.id.a1
     public void button1(View v){
-        answerEvent(realAns==0);
+        boolean right = realAns==0;
+        if (!right){
+            alt1.setBackgroundResource(R.drawable.greybutton);
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
     }
 
     //Catches a onClick event for the button alt2/R.id.a2
     public void button2(View v){
-        answerEvent(realAns == 1);
+        boolean right = realAns==1;
+        if (!right){
+            alt1.setBackgroundResource(R.drawable.greybutton);
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
     }
 
     //Catches a onClick event for the button alt3/R.id.a3
     public void button3(View v){
-        answerEvent(realAns == 2);
+        boolean right = realAns==2;
+        if (!right){
+            alt3.setBackgroundResource(R.drawable.greybutton);
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
     }
 
     //Catches a onClick event for the button alt4/R.id.a4
     public void button4(View v){
-        answerEvent(realAns == 3);
+        boolean right = realAns==3;
+        if (!right){
+            alt4.setBackgroundResource(R.drawable.greybutton);
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
     }
 
     //Catches a onClick event for the button alt5/R.id.a5
     public void button5(View v){
-        answerEvent(realAns==4);
+        boolean right = realAns==4;
+        if (!right){
+            alt5.setBackgroundResource(R.drawable.greybutton);
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
     }
 
     //Catches a onClick event for the button alt6/R.id.a6
     public void button6(View v) {
-        answerEvent(realAns==5);
+        boolean right = realAns==5;
+        if (!right){
+            alt6.setBackground(resources.getDrawable(R.drawable.greybutton));
+            pauseQuiz(2000);
+        }
+        answerEvent(right);
+    }
+
+    //Pauses the game for a specified time
+    private void pauseQuiz(int time)  {
+        System.out.println("Feed");
+        timeFunc.cancel();
+
+        //Pauses the thread for (param) milliseconds
+        wait.sec(time);
+
     }
 
     //Processes all of the onClick events, catches a bool, of true it
@@ -193,25 +247,14 @@ public class GameActivity extends ActionBarActivity {
         boolean endOfGame=false;
         int currentLevel=quiz.getMode().level;
 
-        Toast toast;
-        CharSequence textRight = "RIGHT!";
-        CharSequence textWrong = "Wrong";
-        int duration = Toast.LENGTH_SHORT;
-
         if (ansBool){
-            System.out.println(textRight);
+            System.out.println("Right");
             endOfGame=quiz.getMode().add();
-
-            toast = Toast.makeText(this, textRight, duration);
-            //toast.show();
-
         }
         else {
             quiz.getMode().remove();
-            toast = Toast.makeText(this, textWrong, duration);
-            toast.show();
 
-            System.out.println(textWrong);
+            System.out.println("Wrong");
         }
 
         if (endOfGame){
@@ -221,7 +264,7 @@ public class GameActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        //Changes the background depending on the level
+        //Changes the background depending on the level NOT!
         if (currentLevel != quiz.getMode().level){
             SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
             //getResources(R.drawable.bglevel1).setColorFilter(0, 155, 155, 155);
@@ -230,9 +273,11 @@ public class GameActivity extends ActionBarActivity {
         newQuestion();
     }
 
-    //Tror att det här kan lösa "paus menyn"
+    //Currently only stops the back button functionality, in the future will bring the pause menu
     @Override
     public void onBackPressed() {
-
+        timeFunc.cancel();
+        Intent intent = new Intent(this, Start.class);
+        startActivity(intent);
     }
 }

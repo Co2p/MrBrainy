@@ -6,12 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
+import android.widget.Spinner;
 
 public class Start extends ActionBarActivity {
-    public void startGame(View view){
-        Intent intent = new Intent(this, GameActivity.class);
-        startActivity(intent);
-    }
+    Spinner chooseDifficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +44,14 @@ public class Start extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 
+    public void startGame(View view){
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+    private void populateSpinner(){
+    }
 }

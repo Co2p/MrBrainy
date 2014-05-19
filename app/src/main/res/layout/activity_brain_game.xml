@@ -46,72 +46,77 @@
                 android:text="Q" />
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp">
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
-                <Button
-                    android:id="@+id/a1"
-                    android:onClick="button1"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/redbutton" />
+                android:layout_gravity="center"
+                android:baselineAligned="false">
 
-                <Button
-                    android:id="@+id/a2"
-                    android:onClick="button2"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/yellowbutton" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/a1"
+                        android:onClick="button1"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/redbutton" />
+
+                    <Button
+                        android:id="@+id/a2"
+                        android:onClick="button2"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/yellowbutton" />
+
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/a3"
+                        android:onClick="button3"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/bluebutton" />
+
+                    <Button
+                        android:id="@+id/a4"
+                        android:onClick="button4"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/cyanbutton" />
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
-                <Button
-                    android:id="@+id/a3"
-                    android:onClick="button3"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/bluebutton" />
 
-                <Button
-                    android:id="@+id/a4"
-                    android:onClick="button4"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/cyanbutton" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/a5"
+                        android:onClick="button5"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/greenbutton" />
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/a6"
+                        android:onClick="button6"
+                        style="@style/AnswerButtons"
+                        android:background="@drawable/pinkbutton"/>
 
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
-                <Button
-                    android:id="@+id/a5"
-                    android:onClick="button5"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/greenbutton" />
-
-                <Button
-                    android:id="@+id/a6"
-                    android:onClick="button6"
-                    style="@style/AnswerButtons"
-                    android:background="@drawable/pinkbutton"/>
+                </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
+        </FrameLayout>
 
 
     </LinearLayout>
@@ -144,6 +149,7 @@
         android:animationResolution="@android:integer/config_mediumAnimTime"
         android:background="#ff000000"
         android:layout_alignParentBottom="true"
+
         android:clickable="false" />
 
 

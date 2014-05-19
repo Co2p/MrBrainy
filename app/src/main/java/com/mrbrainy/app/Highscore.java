@@ -2,7 +2,6 @@ package com.mrbrainy.app;
 
 import android.content.Context;
 import android.text.format.Time;
-
 import java.io.FileOutputStream;
 
 
@@ -40,13 +39,13 @@ public class Highscore{
         System.out.println("Writing highscore...");
         //Inserting score and date/time into a file
         //TODO Här måste context förstås och skickas in, ingen aning om hur det funkar...
-        try{
+        /*try{
             FileOutputStream fos = Context.openFileOutput(FILENAME, Context.MODE_APPEND);
             fos.write(insert.getBytes());
             fos.close();
         }
         catch(Exception e){
             System.out.print(e);
-        }
+        }*/
     }
 }
