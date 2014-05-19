@@ -22,7 +22,7 @@ public class GameActivity extends ActionBarActivity {
     protected int pageNumber;
     private int realAns;
     private MathQuiz quiz;
-    private TextView qText, pageNr, levelText, qTimer;
+    private TextView qText, pageNr, levelText;
     private RelativeLayout relativeLayout;
     private int progressStatus = 0;
     private ProgressBar progress;
@@ -50,7 +50,7 @@ public class GameActivity extends ActionBarActivity {
         quiz = new MathQuiz(7, 5, 2);
 
         //Creates a new timer with 10 seconds
-        timer(10000);
+        timer(20000);
 
         pageNumber = 0;
 
@@ -66,19 +66,21 @@ public class GameActivity extends ActionBarActivity {
         newQuestion();
     }
 
-    private void timer(int time){
+    private void timer(final int time){
         //Timer for question (10 secs)
-        timeFunc = new CountDownTimer(time, 1000){
+        timeFunc = new CountDownTimer(time, 100){
             //Render text everytime the timer counts down one second
             public void onTick(long mill) {
-                qTimer.setText("tid = " + mill / 1000);
+                //qTimer.setText("tid = " + mill / 1000);
+                progressStatus = ((int) mill/200);
+                progress.setProgress(progressStatus);
             }
             //When finished, set the question marked as false and move
             //on to the next question
             public void onFinish() {
                 answerEvent(false);
             }
-        }.start();
+        };
     }
 
     private void timerReset(){
@@ -89,10 +91,7 @@ public class GameActivity extends ActionBarActivity {
     protected void newQuestion(){
 
         pageNumber++;
-        qTimer = (TextView) findViewById(R.id.timerShow);
 
-        progressStatus = ((quiz.getMode().getProgress()*100)/(quiz.getMode().getStepSize()));
-        progress.setProgress(progressStatus);
 
         String questionString = quiz.generateQuestion();
 
@@ -106,7 +105,7 @@ public class GameActivity extends ActionBarActivity {
 
         //Displays the current level
         levelText = (TextView) findViewById(R.id.level);
-        levelText.setText(getResources().getString(R.string.level) + quiz.getMode().getMode());
+        levelText.setText(getResources().getString(R.string.level) + " " + quiz.getMode().getMode());
 
         setButtonText();
 

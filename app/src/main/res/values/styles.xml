@@ -8,6 +8,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="StartStyle" parent="@android:style/Theme.Holo">
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
     <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@null</item>
