@@ -10,8 +10,7 @@
     <string name="what_is_q">What is</string>
     <string name="question_nr">Question</string>
     <string name="level">Level</string>
-    //About activity strings
-    <string name="title_activity_about">About</string>
+    //About activity strings    <string name="title_activity_about">About</string>
     <string name="cool_button">Cool Stuff!</string>
     <string name="info">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
     <string name="title_activity_game">Math Quiz</string>
@@ -20,5 +19,8 @@
     <string name="yes">Yes</string>
     <string name="really_quit">Are you sure you want to quit?</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_paused">PausedActivity</string>
+    <string name="resume">Resume</string>
+    <string name="main_menu">Main Menu</string>
 
 </resources>
