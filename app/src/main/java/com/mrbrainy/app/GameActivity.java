@@ -8,7 +8,7 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class GameActivity extends ActionBarActivity {
     private int realAns;
     private MathQuiz quiz;
     private TextView qText, pageNr, levelText;
-    private RelativeLayout relativeLayout;
+    private LinearLayout linearLayout;
     private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
@@ -41,7 +41,7 @@ public class GameActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brain_game);
-        relativeLayout  = (RelativeLayout) findViewById(R.id.relativeLayout);
+        linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
 
         //Creates a quiz object with 7 levels, a streak of 5 to level up,
@@ -63,11 +63,13 @@ public class GameActivity extends ActionBarActivity {
         alt5 = (Button)findViewById(R.id.a5);
         alt6 = (Button)findViewById(R.id.a6);
 
+        System.out.println("Generating new question...");
         newQuestion();
     }
 
     private void timer(final int time){
         //Timer for question (10 secs)
+        System.out.println("Timer initierad");
         timeFunc = new CountDownTimer(time, 100){
             //Render text everytime the timer counts down one second
             public void onTick(long mill) {
@@ -84,12 +86,13 @@ public class GameActivity extends ActionBarActivity {
     }
 
     private void timerReset(){
+        System.out.println("Resetting timer...");
         timeFunc.start();
     }
 
     //Generates a new question and adds it to the display
     protected void newQuestion(){
-
+        System.out.println("Creating question strings...");
         pageNumber++;
 
         String questionString = quiz.generateQuestion();
@@ -109,6 +112,7 @@ public class GameActivity extends ActionBarActivity {
         setButtonText();
 
         //set new timer
+        System.out.println("Setting the timer...");
         timerReset();
 
     }
@@ -118,28 +122,29 @@ public class GameActivity extends ActionBarActivity {
         //Puts the real answer into an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
-        Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(6);
-
         answers.add(0, String.valueOf(quiz.getAnswer()));
+
+        System.out.println("Randomizing faulty answers...");
 
         //Randomize in faulty answers into array
         for(int i = 1; i < 6; i++){
+            System.out.println("Randomizing question: " + i);
             String fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
             while(answers.contains(fault)){
+                System.out.println("Already in array!");
                 fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
             }
             answers.add(i, fault);
         }
-
+        System.out.println("Shufflin' array");
         //Shuffle the array
         long seed = System.nanoTime();
         Collections.shuffle(answers, new Random(seed));
-
+        System.out.println("Inserting real answer position");
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
         System.out.println("The answer is button number: " + (realAns+1) );
-
+        System.out.println("Inserting answers into game...");
         //Insert answers into game
         alt1.setText(answers.get(0));
         alt2.setText(answers.get(1));
@@ -186,6 +191,7 @@ public class GameActivity extends ActionBarActivity {
 
         //if this is true the max level has been reached
         boolean endOfGame=false;
+        int currentLevel=quiz.getMode().level;
 
         Toast toast;
         CharSequence textRight = "RIGHT!";
@@ -216,7 +222,10 @@ public class GameActivity extends ActionBarActivity {
         }
 
         //Changes the background depending on the level
-        SharedInterface.setBackground(quiz.getMode().getMode(), relativeLayout, resources);
+        if (currentLevel != quiz.getMode().level){
+            SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
+            //getResources(R.drawable.bglevel1).setColorFilter(0, 155, 155, 155);
+        }
 
         newQuestion();
     }

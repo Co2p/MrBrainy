@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mrbrainy.app.BrainGame"
-    style="@style/AppTheme"
+    style="@style/StartStyle"
     android:longClickable="false"
     android:id="@+id/relativeLayout"
     android:gravity="top">
@@ -107,7 +107,7 @@
                     android:id="@+id/a6"
                     android:onClick="button6"
                     style="@style/AnswerButtons"
-                    android:background="@drawable/pinkbutton" />
+                    android:background="@drawable/pinkbutton"/>
 
             </LinearLayout>
 

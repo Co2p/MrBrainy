@@ -30,8 +30,8 @@ public class MathQuiz {
         int range = (Math.abs(ans)/10);
         int randInt;
 
-        if(range<5){
-            range=(range+5);
+        if(range<10){
+            range=(range+10);
         }
 
         do {

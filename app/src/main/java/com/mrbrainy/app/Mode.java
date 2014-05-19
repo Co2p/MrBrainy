@@ -36,13 +36,16 @@ public class Mode {
 	}
 
     //if the user answers wrong the progress is reset, if there have been a falseQ
-    //number of mistakes the level is lowered
-	public void remove(){
+    //number of mistakes the level is lowered. If the level is lowered the method returns true.
+	public boolean remove(){
 		progress = 0;
         faultMode++;
 		if(faultMode >= falseQ && level > 0){
 			level--;
+            return true;
 		}
+
+        return false;
 	}
 	
 	public int getMode(){
