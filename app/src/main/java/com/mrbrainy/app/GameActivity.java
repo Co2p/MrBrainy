@@ -220,6 +220,6 @@ public class GameActivity extends ActionBarActivity {
     //Tror att det här kan lösa "paus menyn"
     @Override
     public void onBackPressed() {
-        DialogFragment quit_Q = new QuitDialog();
+
     }
 }

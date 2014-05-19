@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mr. Brainy</string>
+    <string name="action_settings">Inställningar</string>
+    <string name="start">Starta!</string>
+    <string name="welcome">Välkommen till Mr. Brainy!</string>
+    <string name="info">Mr. Brainy är ett spel som använder sig av din hjärnas funktioner?!</string>
+    <string name="title_activity_brain_game">Matte Quiz</string>
+    <string name="title_activity_quiz_followup">QuizFollowup</string>
+    <string name="what_is_q">Vad är</string>
+    <string name="question_nr">Fråga</string>
+    <string name="level">Nivå</string>
+    //About activity strings
+    <string name="title_activity_about">Om appen</string>
+    <string name="cool_button">Coolt!</string>
+    <string name="info_content">Mr. Brainy är ett spel som använder sig av din hjärnas funktioner?!</string>
+    <string name="title_activity_game">Matte Quiz</string>
+    <string name="timer">Timer placeholder</string>
+    <string name="Score">Large Text</string>
+    <string name="yes">Ja</string>
+    <string name="really_quit">Vill du verkligen avsluta?</string>
+    <string name="cancel">Avbryt</string>
+
+</resources>

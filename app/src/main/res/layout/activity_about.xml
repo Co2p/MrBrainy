@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textSize="50sp"
         android:gravity="center"
-        android:text="@string/info_content"
+        android:text="@string/info"
         android:padding="20dp" />
 
     <!-- This FrameLayout insets its children based on system windows using
