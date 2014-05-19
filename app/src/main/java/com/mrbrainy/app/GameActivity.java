@@ -1,6 +1,5 @@
 package com.mrbrainy.app;
 
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.ActionBarActivity;
@@ -29,7 +28,7 @@ public class GameActivity extends ActionBarActivity {
     private Resources resources;
     CountDownTimer timeFunc;
     //AnswerButtons
-    private Button alt1, alt2, alt3, alt4, alt5;
+    private Button alt1, alt2, alt3, alt4, alt5, alt6;
     //This sends stuff to QuizFollowup
     public final static String LEVEL_INFO = "com.mrbrainy.app.LEVEL_INFO";
 
@@ -49,7 +48,7 @@ public class GameActivity extends ActionBarActivity {
         // and two mistakes to loose level.
         quiz = new MathQuiz(7, 5, 2);
 
-        //Creates a new timer with 10 seconds
+        //Creates a new timer with 20 seconds
         timer(20000);
 
         pageNumber = 0;
@@ -62,6 +61,7 @@ public class GameActivity extends ActionBarActivity {
         alt3 = (Button)findViewById(R.id.a3);
         alt4 = (Button)findViewById(R.id.a4);
         alt5 = (Button)findViewById(R.id.a5);
+        alt6 = (Button)findViewById(R.id.a6);
 
         newQuestion();
     }
@@ -92,7 +92,6 @@ public class GameActivity extends ActionBarActivity {
 
         pageNumber++;
 
-
         String questionString = quiz.generateQuestion();
 
         //Displays the question
@@ -120,12 +119,12 @@ public class GameActivity extends ActionBarActivity {
         ArrayList<String> answers = new ArrayList<String>();
 
         Random altRandomizer = new Random();
-        realAns = altRandomizer.nextInt(5);
+        realAns = altRandomizer.nextInt(6);
 
         answers.add(0, String.valueOf(quiz.getAnswer()));
 
         //Randomize in faulty answers into array
-        for(int i = 1; i < 5; i++){
+        for(int i = 1; i < 6; i++){
             String fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
             while(answers.contains(fault)){
                 fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
@@ -147,6 +146,7 @@ public class GameActivity extends ActionBarActivity {
         alt3.setText(answers.get(2));
         alt4.setText(answers.get(3));
         alt5.setText(answers.get(4));
+        alt6.setText(answers.get(5));
     }
 
     //Catches a onClick event for the button alt1/R.id.a1
@@ -174,6 +174,11 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(realAns==4);
     }
 
+    //Catches a onClick event for the button alt6/R.id.a6
+    public void button6(View v) {
+        answerEvent(realAns==5);
+    }
+
     //Processes all of the onClick events, catches a bool, of true it
         //will add to the correct answers in the mode class, otherwise it will remove.
         // If the max level has been reached, the activity QuizFollowup will be called
@@ -198,7 +203,7 @@ public class GameActivity extends ActionBarActivity {
         else {
             quiz.getMode().remove();
             toast = Toast.makeText(this, textWrong, duration);
-            //toast.show();
+            toast.show();
 
             System.out.println(textWrong);
         }
