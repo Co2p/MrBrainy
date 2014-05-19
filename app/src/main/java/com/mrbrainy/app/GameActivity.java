@@ -27,6 +27,7 @@ public class GameActivity extends ActionBarActivity {
     private ProgressBar progress;
     private Resources resources;
     private Wait wait = new Wait();
+    private Highscore score;
     CountDownTimer timeFunc;
     //AnswerButtons
     private Button alt1, alt2, alt3, alt4, alt5, alt6;
@@ -52,6 +53,7 @@ public class GameActivity extends ActionBarActivity {
         //Creates a new timer with 20 seconds
         timer(20000);
 
+        score = new Highscore();
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
@@ -273,11 +275,21 @@ public class GameActivity extends ActionBarActivity {
         newQuestion();
     }
 
+    public double getPoints(){
+        return score.getScore();
+    }
+
+
     //Currently only stops the back button functionality, in the future will bring the pause menu
     @Override
     public void onBackPressed() {
         timeFunc.cancel();
-        Intent intent = new Intent(this, Start.class);
+        Intent intent = new Intent(this, PausedActivity.class);
         startActivity(intent);
     }
+
+    public void resume(){
+
+    }
+
 }

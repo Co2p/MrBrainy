@@ -22,6 +22,10 @@ public class Highscore{
         score = score + ((time/1000) * 1 + (level/10));
     }
 
+    public double getScore(){
+        return score;
+    }
+
     //Adds the current score into a highscore file
     public void addHighscore(){
         String FILENAME = "highscore";
