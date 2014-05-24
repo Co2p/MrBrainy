@@ -289,7 +289,7 @@ public class GameActivity extends ActionBarActivity {
     }
 
     public void resume(){
-
+        newQuestion();
     }
 
 }
