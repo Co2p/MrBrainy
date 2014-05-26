@@ -23,7 +23,7 @@ public class PausedActivity extends ActionBarActivity {
         System.out.println("No you dont!");
     }
 
-
+    //TODO needs to resume the paused game, this just starts a new one!
     public void resume(View v){
         Intent intent = new Intent(this, GameActivity.class);
         startActivity(intent);

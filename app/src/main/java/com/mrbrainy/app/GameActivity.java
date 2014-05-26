@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
@@ -280,7 +279,7 @@ public class GameActivity extends ActionBarActivity {
     }
 
 
-    //Currently only stops the back button functionality, in the future will bring the pause menu
+    //Brings up the pause menu when the back button is pressed
     @Override
     public void onBackPressed() {
         timeFunc.cancel();
