@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mrbrainy.app.BrainGame"
-    style="@style/StartStyle"
+    style="@style/FullBleed"
     android:longClickable="false"
     android:id="@+id/relativeLayout"
     android:gravity="top">
@@ -151,6 +151,5 @@
         android:layout_alignParentBottom="true"
 
         android:clickable="false" />
-
 
 </RelativeLayout>

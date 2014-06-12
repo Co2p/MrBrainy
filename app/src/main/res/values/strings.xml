@@ -13,9 +13,13 @@
     //About activity strings    <string name="title_activity_about">About</string>
     <string name="cool_button">Cool Stuff!</string>
     <string name="info">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
+
+    //Game strings
     <string name="title_activity_game">Math Quiz</string>
     <string name="timer">Timer placeholder</string>
     <string name="Score">Large Text</string>
+
+    //Pause menu and popup
     <string name="yes">Yes</string>
     <string name="really_quit">Are you sure you want to quit?</string>
     <string name="cancel">Cancel</string>
