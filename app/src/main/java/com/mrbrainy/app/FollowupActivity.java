@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+/**
+ * @author Gordon Cooper and Isidor Nygren
+ * Gives the user feedback after a game.
+ */
 public class FollowupActivity extends ActionBarActivity {
     private Resources resources;
     private LinearLayout linearLayout;
