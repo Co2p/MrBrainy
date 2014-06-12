@@ -11,6 +11,7 @@ public class MathQuiz {
 	private Mode mode;
     private int difficulty = 20;
     private int level;
+    private int questionSign;
 
     //
 	public MathQuiz(int maxL, int streak, int falseQ ){
@@ -25,7 +26,8 @@ public class MathQuiz {
 
     //Generates a faulty answer within a window
     // (a window that's 10 and answer on 5 returns between 0 and 10)
-    public int getFalseAns(int ans){
+    //sign, 0 = plus and 1 = minus.
+    public int getFalseAns(int ans, boolean sign){
         Random randomGenerator = new Random();
         int range = (Math.abs(ans)/10);
         int randInt;
@@ -38,6 +40,12 @@ public class MathQuiz {
             randInt = (ans + randomGenerator.nextInt(range) - range / 2);
         }while(randInt==ans);
 
+        //Generates answers with different sign if question contains a minus
+        if(sign || ans < 0){
+            if(randomGenerator.nextInt(2) == 1) {
+                randInt *= -1;
+            }
+        }
         return randInt;
     }
 
@@ -72,16 +80,19 @@ public class MathQuiz {
 			case 0:
 				answer = var1 + var2;
                 questionString = qString(var1, "+", var2);
+                questionSign = 0;
 				break;
 			//minus
 			case 1:
 				answer = var1 - var2;
 				questionString = qString(var1, "-", var2);
+                questionSign = 1;
 				break;
 			//multiply
 			case 2:
 				answer = var1 * var2;
 				questionString = qString(var1, "×", var2);
+                questionSign = 2;
 				break;
             //divide
             case 3:
@@ -94,6 +105,7 @@ public class MathQuiz {
                 System.out.println("var 2: " + var2);
                 System.out.println("var 3: " + var3);
                 questionString = qString(var3, "÷", var2);
+                questionSign = 3;
 		}
         return questionString;
 	}
@@ -106,6 +118,11 @@ public class MathQuiz {
         }
         else
             return var1 + " " +  sign + " " + var2;
+    }
+
+    //returns what sign the last question had
+    public int getSign(){
+        return questionSign;
     }
 
     //Returns the basenumbers for each question

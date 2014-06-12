@@ -128,27 +128,25 @@ public class GameActivity extends ActionBarActivity {
 
         answers.add(0, String.valueOf(quiz.getAnswer()));
 
-        System.out.println("Randomizing faulty answers...");
-
         //Randomize in faulty answers into array
         for(int i = 1; i < 6; i++){
-            System.out.println("Randomizing question: " + i);
-            String fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
+            String fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer(), quiz.getSign() == 1));
             while(answers.contains(fault)){
                 System.out.println("Already in array!");
-                fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer()));
+                fault = String.valueOf(quiz.getFalseAns(quiz.getAnswer(), quiz.getSign() == 1));
             }
             answers.add(i, fault);
         }
         System.out.println("Shufflin' array");
+
         //Shuffle the array
         long seed = System.nanoTime();
         Collections.shuffle(answers, new Random(seed));
-        System.out.println("Inserting real answer position");
+
         //Insert real answer position
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
         System.out.println("The answer is button number: " + (realAns+1) );
-        System.out.println("Inserting answers into game...");
+
         //Insert answers into game
         alt1.setText(answers.get(0));
         alt2.setText(answers.get(1));
