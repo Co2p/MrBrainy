@@ -163,7 +163,7 @@ public class GameActivity extends ActionBarActivity {
     public void button2(View v){
         boolean right = realAns==1;
         if (!right){
-            alt1.setBackgroundResource(R.drawable.greybutton);
+            alt2.setBackgroundResource(R.drawable.greybutton);
         }
         answerEvent(right);
     }
