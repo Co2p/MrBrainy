@@ -16,9 +16,8 @@ import java.util.Collections;
 
 /**
  * @author Gordon Cooper and Isidor Nygren
- * Game activity controls the in game ui
+ * controls the in game ui
  */
-
 public class GameActivity extends ActionBarActivity {
 
     protected int pageNumber;
@@ -237,7 +236,6 @@ public class GameActivity extends ActionBarActivity {
 
         //Pauses the thread for (param) milliseconds
         Wait.sec(time);
-
     }
 
     //Processes all of the onClick events, catches a bool, of true it
@@ -245,6 +243,7 @@ public class GameActivity extends ActionBarActivity {
         // If the max level has been reached, the activity QuizFollowup will be called
     protected void answerEvent(boolean ansBool) {
         timeFunc.cancel();
+        Wait.sec(4000);
 
         //if this is true the max level has been reached
         boolean endOfGame=false;
@@ -291,5 +290,4 @@ public class GameActivity extends ActionBarActivity {
     public void resume(){
         newQuestion();
     }
-
 }
