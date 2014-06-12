@@ -22,9 +22,9 @@ import java.util.Collections;
 public class GameActivity extends ActionBarActivity {
 
     protected int pageNumber;
-    private int realAns;
-    private MathQuiz quiz;
-    private TextView qText, pageNr, levelText;
+    protected int realAns;
+    protected MathQuiz quiz;
+    protected TextView qText, pageNr, levelText;
     private LinearLayout linearLayout;
     private int progressStatus = 0;
     private ProgressBar progress;
@@ -33,15 +33,17 @@ public class GameActivity extends ActionBarActivity {
     private Highscore score;
     CountDownTimer timeFunc;
     //AnswerButtons
-    private Button alt1, alt2, alt3, alt4, alt5, alt6;
+    protected Button alt1, alt2, alt3, alt4, alt5, alt6;
     //This sends stuff to QuizFollowup
     public final static String LEVEL_INFO = "com.mrbrainy.app.LEVEL_INFO";
 
 
-
-    //Constructor... creates a relativeLayout variable, resources variable and a new game (quiz)
-        //initiates the buttons and the question number.
-        //it also launches the first question.
+    /**
+     * Constructor... creates a relativeLayout variable, resources variable and a new game (quiz)
+     * initiates the buttons and the question number.
+     * it also launches the first question.
+     * @param savedInstanceState android stuff, NO TOUCH!
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,31 +75,9 @@ public class GameActivity extends ActionBarActivity {
         newQuestion();
     }
 
-    private void timer(final int time){
-        //Timer for question (10 secs)
-        System.out.println("Timer initierad");
-        timeFunc = new CountDownTimer(time, 100){
-            //Render text everytime the timer counts down one second
-            public void onTick(long mill) {
-                //qTimer.setText("tid = " + mill / 1000);
-                progressStatus = ((int) mill/200);
-                progress.setProgress(progressStatus);
-            }
-            //When finished, set the question marked as false and move
-            //on to the next question
-            public void onFinish() {
-                answerEvent(false);
-            }
-        };
-    }
-
-    private void timerReset(){
-        System.out.println("Resetting timer...");
-        timeFunc.start();
-    }
-
     //Generates a new question and adds it to the display
     protected void newQuestion(){
+        //Puts colour back on the buttons
         resetButtons();
 
         System.out.println("Creating question strings...");
@@ -122,11 +102,10 @@ public class GameActivity extends ActionBarActivity {
         //set new timer
         System.out.println("Setting the timer...");
         timerReset();
-
     }
 
     //Randomizes the order of the answers
-    private void setButtonText(){
+    protected void setButtonText(){
         //Puts the real answer into an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
 
@@ -163,12 +142,12 @@ public class GameActivity extends ActionBarActivity {
     //Puts the colour back on the buttons
     //Should these be randomized?
     private void resetButtons(){
-        alt1.setBackgroundResource(R.drawable.redbutton);
-        alt2.setBackgroundResource(R.drawable.yellowbutton);
-        alt3.setBackgroundResource(R.drawable.bluebutton);
-        alt4.setBackgroundResource(R.drawable.cyanbutton);
-        alt5.setBackgroundResource(R.drawable.greenbutton);
-        alt6.setBackgroundResource(R.drawable.pinkbutton);
+        //alt1.setBackgroundResource(R.drawable.redbutton);
+        //alt2.setBackgroundResource(R.drawable.yellowbutton);
+        //alt3.setBackgroundResource(R.drawable.bluebutton);
+        //alt4.setBackgroundResource(R.drawable.cyanbutton);
+        //alt5.setBackgroundResource(R.drawable.greenbutton);
+        //alt6.setBackgroundResource(R.drawable.pinkbutton);
     }
 
     //Catches a onClick event for the button alt1/R.id.a1
@@ -176,7 +155,6 @@ public class GameActivity extends ActionBarActivity {
         boolean right = realAns==0;
         if (!right){
             alt1.setBackgroundResource(R.drawable.greybutton);
-            pauseQuiz(2000);
         }
         answerEvent(right);
     }
@@ -186,7 +164,6 @@ public class GameActivity extends ActionBarActivity {
         boolean right = realAns==1;
         if (!right){
             alt1.setBackgroundResource(R.drawable.greybutton);
-            pauseQuiz(2000);
         }
         answerEvent(right);
     }
@@ -196,7 +173,6 @@ public class GameActivity extends ActionBarActivity {
         boolean right = realAns==2;
         if (!right){
             alt3.setBackgroundResource(R.drawable.greybutton);
-            pauseQuiz(2000);
         }
         answerEvent(right);
     }
@@ -206,7 +182,6 @@ public class GameActivity extends ActionBarActivity {
         boolean right = realAns==3;
         if (!right){
             alt4.setBackgroundResource(R.drawable.greybutton);
-            pauseQuiz(2000);
         }
         answerEvent(right);
     }
@@ -216,7 +191,6 @@ public class GameActivity extends ActionBarActivity {
         boolean right = realAns==4;
         if (!right){
             alt5.setBackgroundResource(R.drawable.greybutton);
-            pauseQuiz(2000);
         }
         answerEvent(right);
     }
@@ -225,26 +199,52 @@ public class GameActivity extends ActionBarActivity {
     public void button6(View v) {
         boolean right = realAns==5;
         if (!right){
-            alt6.setBackground(resources.getDrawable(R.drawable.greybutton));
-            pauseQuiz(2000);
+            alt6.setBackgroundResource(R.drawable.greybutton);
         }
         answerEvent(right);
     }
 
+    private void timer(final int time){
+        //Timer for question (10 secs)
+        System.out.println("Timer initierad");
+        timeFunc = new CountDownTimer(time, 100){
+            //Render text everytime the timer counts down one second
+            public void onTick(long mill) {
+                //qTimer.setText("tid = " + mill / 1000);
+                progressStatus = ((int) mill/200);
+                progress.setProgress(progressStatus);
+            }
+            //When finished, set the question marked as false and move
+            //on to the next question
+            public void onFinish() {
+                answerEvent(false);
+            }
+        };
+    }
+
+    protected void timerReset(){
+        System.out.println("Resetting timer...");
+        timeFunc.start();
+    }
+
+
+
+
     //Pauses the game for a specified time
-    private void pauseQuiz(int time)  {
-        System.out.println("Feed");
+    protected void pauseQuiz(int time)  {
+        System.out.println("Pausing");
         timeFunc.cancel();
 
         //Pauses the thread for (param) milliseconds
-        wait.sec(time);
+        Wait.sec(time);
 
     }
 
     //Processes all of the onClick events, catches a bool, of true it
         //will add to the correct answers in the mode class, otherwise it will remove.
         // If the max level has been reached, the activity QuizFollowup will be called
-    private void answerEvent(boolean ansBool) {
+    protected void answerEvent(boolean ansBool) {
+        timeFunc.cancel();
 
         //if this is true the max level has been reached
         boolean endOfGame=false;
@@ -270,7 +270,6 @@ public class GameActivity extends ActionBarActivity {
         //Changes the background depending on the level NOT!
         if (currentLevel != quiz.getMode().level){
             SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
-            //getResources(R.drawable.bglevel1).setColorFilter(0, 155, 155, 155);
         }
 
         newQuestion();
