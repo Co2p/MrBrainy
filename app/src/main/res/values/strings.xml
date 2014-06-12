@@ -10,9 +10,12 @@
     <string name="what_is_q">What is</string>
     <string name="question_nr">Question</string>
     <string name="level">Level</string>
-    //About activity strings    <string name="title_activity_about">About</string>
+    
+    //About activity strings    
+    <string name="title_activity_about">About</string>
     <string name="cool_button">Cool Stuff!</string>
-    <string name="info">Mr. Brainy is a brain game, utilizing the features of your brain?!</string>
+    <string name="version">Mr. Brainy v.0.1 alpha</string>
+    <string name="info">Created by: \n Gordon Cooper\n and\n Isidor Nygren\n ©MrBrainy 2014</string>
 
     //Game strings
     <string name="title_activity_game">Math Quiz</string>

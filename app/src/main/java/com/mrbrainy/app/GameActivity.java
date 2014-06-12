@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Collections;
 
+/**
+ * @author Gordon Cooper and Isidor Nygren
+ * Game activity controls the in game ui
+ */
 
 public class GameActivity extends ActionBarActivity {
 

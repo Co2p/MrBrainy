@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0099cc"
-    tools:context="com.mrbrainy.app.AboutActivity">
+    tools:context="com.mrbrainy.app.AboutActivity"
+    style="@style/FullBleed">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -14,13 +15,23 @@
         android:keepScreenOn="true"
         android:textColor="#33b5e5"
         android:textStyle="bold"
-        android:textSize="50sp"
+        android:textSize="32dp"
         android:gravity="center"
         android:text="@string/info"
         android:padding="20dp" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/FullBleed"
+        android:text="@string/version"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
 
     <FrameLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
