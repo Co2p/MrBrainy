@@ -16,7 +16,7 @@ import java.util.Collections;
 
 /**
  * @author Gordon Cooper and Isidor Nygren
- * controls the in game ui
+ * Controls the in game ui
  */
 public class GameActivity extends ActionBarActivity {
 
@@ -74,7 +74,9 @@ public class GameActivity extends ActionBarActivity {
         newQuestion();
     }
 
-    //Generates a new question and adds it to the display
+    /**
+     * Generates a new question and adds it to the display
+     */
     protected void newQuestion(){
         //Puts colour back on the buttons
         resetButtons();
@@ -103,7 +105,9 @@ public class GameActivity extends ActionBarActivity {
         timerReset();
     }
 
-    //Randomizes the order of the answers
+    /**
+     * Randomizes the order of the answers
+     */
     protected void setButtonText(){
         //Puts the real answer into an array and inserts several faulty answers aswell
         ArrayList<String> answers = new ArrayList<String>();
@@ -138,8 +142,10 @@ public class GameActivity extends ActionBarActivity {
         alt6.setText(answers.get(5));
     }
 
-    //Puts the colour back on the buttons
-    //Should these be randomized?
+    /**
+     * Puts the colour back on the buttons
+     * Should the colour be randomized?
+     */
     private void resetButtons(){
         //alt1.setBackgroundResource(R.drawable.redbutton);
         //alt2.setBackgroundResource(R.drawable.yellowbutton);
@@ -149,7 +155,10 @@ public class GameActivity extends ActionBarActivity {
         //alt6.setBackgroundResource(R.drawable.pinkbutton);
     }
 
-    //Catches a onClick event for the button alt1/R.id.a1
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button1(View v){
         boolean right = realAns==0;
         if (!right){
@@ -158,7 +167,10 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(right);
     }
 
-    //Catches a onClick event for the button alt2/R.id.a2
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button2(View v){
         boolean right = realAns==1;
         if (!right){
@@ -167,7 +179,10 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(right);
     }
 
-    //Catches a onClick event for the button alt3/R.id.a3
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button3(View v){
         boolean right = realAns==2;
         if (!right){
@@ -176,7 +191,10 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(right);
     }
 
-    //Catches a onClick event for the button alt4/R.id.a4
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button4(View v){
         boolean right = realAns==3;
         if (!right){
@@ -185,7 +203,10 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(right);
     }
 
-    //Catches a onClick event for the button alt5/R.id.a5
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button5(View v){
         boolean right = realAns==4;
         if (!right){
@@ -194,7 +215,10 @@ public class GameActivity extends ActionBarActivity {
         answerEvent(right);
     }
 
-    //Catches a onClick event for the button alt6/R.id.a6
+    /**
+     * Catches a onClick event for the button altX/R.id.aX
+     * @param v id required by android
+     */
     public void button6(View v) {
         boolean right = realAns==5;
         if (!right){
@@ -227,9 +251,10 @@ public class GameActivity extends ActionBarActivity {
     }
 
 
-
-
-    //Pauses the game for a specified time
+    /**
+     * Pauses the game for a specified time
+     * @param time the specified time
+     */
     protected void pauseQuiz(int time)  {
         System.out.println("Pausing");
         timeFunc.cancel();
@@ -238,9 +263,12 @@ public class GameActivity extends ActionBarActivity {
         Wait.sec(time);
     }
 
-    //Processes all of the onClick events, catches a bool, of true it
-        //will add to the correct answers in the mode class, otherwise it will remove.
-        // If the max level has been reached, the activity QuizFollowup will be called
+    /**
+     * Processes all of the onClick events, catches a bool, of true it will add to the
+     * correct answers in the mode class, otherwise it will remove.
+     * If the max level has been reached, the activity QuizFollowup will be called
+     * @param ansBool
+     */
     protected void answerEvent(boolean ansBool) {
         timeFunc.cancel();
         Wait.sec(4000);
@@ -266,7 +294,7 @@ public class GameActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        //Changes the background depending on the level NOT!
+        //Changes the background depending on the level
         if (currentLevel != quiz.getMode().level){
             SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
         }
@@ -279,7 +307,9 @@ public class GameActivity extends ActionBarActivity {
     }
 
 
-    //Brings up the pause menu when the back button is pressed
+    /**
+     * Brings up the pause menu when the back button is pressed
+     */
     @Override
     public void onBackPressed() {
         timeFunc.cancel();
