@@ -2,6 +2,7 @@ package com.mrbrainy.app;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,7 +17,7 @@ import java.util.Collections;
 
 /**
  * @author Gordon Cooper and Isidor Nygren
- * Controls the in game ui
+ * Controls the in game ui and some logic
  */
 public class GameActivity extends ActionBarActivity {
 
@@ -28,11 +29,12 @@ public class GameActivity extends ActionBarActivity {
     private int progressStatus = 0;
     private ProgressBar progress;
     private Resources resources;
-    private Wait wait = new Wait();
     private Highscore score;
     CountDownTimer timeFunc;
-    //AnswerButtons
-    protected Button alt1, alt2, alt3, alt4, alt5, alt6;
+
+
+
+    protected ArrayList<ButtonHolder> buttonListeners = new ArrayList<ButtonHolder>();
     //This sends stuff to QuizFollowup
     public final static String LEVEL_INFO = "com.mrbrainy.app.LEVEL_INFO";
 
@@ -63,12 +65,16 @@ public class GameActivity extends ActionBarActivity {
         progress = (ProgressBar) findViewById(R.id.progressBar);
         progress.setMax(100);
 
-        alt1 = (Button)findViewById(R.id.a1);
-        alt2 = (Button)findViewById(R.id.a2);
-        alt3 = (Button)findViewById(R.id.a3);
-        alt4 = (Button)findViewById(R.id.a4);
-        alt5 = (Button)findViewById(R.id.a5);
-        alt6 = (Button)findViewById(R.id.a6);
+
+
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a1)));
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a2)));
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a3)));
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a4)));
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a5)));
+        buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a6)));
+
+
 
         System.out.println("Generating new question...");
         newQuestion();
@@ -79,7 +85,7 @@ public class GameActivity extends ActionBarActivity {
      */
     protected void newQuestion(){
         //Puts colour back on the buttons
-        resetButtons();
+
 
         System.out.println("Creating question strings...");
         pageNumber++;
@@ -133,13 +139,15 @@ public class GameActivity extends ActionBarActivity {
         realAns = answers.indexOf(String.valueOf(quiz.getAnswer()));
         System.out.println("The answer is button number: " + (realAns+1) );
 
+        int index=0;
         //Insert answers into game
-        alt1.setText(answers.get(0));
-        alt2.setText(answers.get(1));
-        alt3.setText(answers.get(2));
-        alt4.setText(answers.get(3));
-        alt5.setText(answers.get(4));
-        alt6.setText(answers.get(5));
+        for(String answer: answers){
+            buttonListeners.get(index).setCaption(answer);
+            if(index==realAns){
+                buttonListeners.get(index).setIsRightAnswer(true);
+            }
+            index++;
+        }
     }
 
     /**
@@ -147,84 +155,10 @@ public class GameActivity extends ActionBarActivity {
      * Should the colour be randomized?
      */
     private void resetButtons(){
-        //alt1.setBackgroundResource(R.drawable.redbutton);
-        //alt2.setBackgroundResource(R.drawable.yellowbutton);
-        //alt3.setBackgroundResource(R.drawable.bluebutton);
-        //alt4.setBackgroundResource(R.drawable.cyanbutton);
-        //alt5.setBackgroundResource(R.drawable.greenbutton);
-        //alt6.setBackgroundResource(R.drawable.pinkbutton);
-    }
-
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button1(View v){
-        boolean right = realAns==0;
-        if (!right){
-            alt1.setBackgroundResource(R.drawable.greybutton);
+        for(ButtonHolder button :buttonListeners){
+            button.resetColor();
         }
-        answerEvent(right);
-    }
 
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button2(View v){
-        boolean right = realAns==1;
-        if (!right){
-            alt2.setBackgroundResource(R.drawable.greybutton);
-        }
-        answerEvent(right);
-    }
-
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button3(View v){
-        boolean right = realAns==2;
-        if (!right){
-            alt3.setBackgroundResource(R.drawable.greybutton);
-        }
-        answerEvent(right);
-    }
-
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button4(View v){
-        boolean right = realAns==3;
-        if (!right){
-            alt4.setBackgroundResource(R.drawable.greybutton);
-        }
-        answerEvent(right);
-    }
-
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button5(View v){
-        boolean right = realAns==4;
-        if (!right){
-            alt5.setBackgroundResource(R.drawable.greybutton);
-        }
-        answerEvent(right);
-    }
-
-    /**
-     * Catches a onClick event for the button altX/R.id.aX
-     * @param v id required by android
-     */
-    public void button6(View v) {
-        boolean right = realAns==5;
-        if (!right){
-            alt6.setBackgroundResource(R.drawable.greybutton);
-        }
-        answerEvent(right);
     }
 
     private void timer(final int time){
@@ -237,12 +171,33 @@ public class GameActivity extends ActionBarActivity {
                 progressStatus = ((int) mill/200);
                 progress.setProgress(progressStatus);
             }
+
             //When finished, set the question marked as false and move
             //on to the next question
             public void onFinish() {
                 answerEvent(false);
             }
         };
+    }
+
+    private void initAnswerDelay(final int time, final boolean answerRight){
+
+        System.out.println("Timer initierad");
+         CountDownTimer timer = new CountDownTimer(time, 100){
+            //Render text everytime the timer counts down one second
+            public void onTick(long mill) {
+
+            }
+
+            //When finished, set the question marked as false and move
+            //on to the next question
+            public void onFinish() {
+                onAfterAnswerDelay(answerRight);
+
+
+            }
+        };
+        timer.start();
     }
 
     protected void timerReset(){
@@ -267,11 +222,10 @@ public class GameActivity extends ActionBarActivity {
      * Processes all of the onClick events, catches a bool, of true it will add to the
      * correct answers in the mode class, otherwise it will remove.
      * If the max level has been reached, the activity QuizFollowup will be called
-     * @param ansBool
+     * @param ansBool true if the answer was correct false otherwise
      */
     protected void answerEvent(boolean ansBool) {
         timeFunc.cancel();
-        Wait.sec(4000);
 
         //if this is true the max level has been reached
         boolean endOfGame=false;
@@ -315,6 +269,23 @@ public class GameActivity extends ActionBarActivity {
         timeFunc.cancel();
         Intent intent = new Intent(this, PausedActivity.class);
         startActivity(intent);
+    }
+    public void onAnswer(boolean isRightAnswer,ButtonHolder pHolder){
+
+        if(isRightAnswer){
+            pHolder.setButtonBackground( R.drawable.bluebutton);
+        }else{
+            pHolder.setButtonBackground( R.drawable.greybutton);
+        }
+
+        timeFunc.cancel();
+        initAnswerDelay(1500,isRightAnswer);
+
+    }
+
+    private void onAfterAnswerDelay(final boolean answerRight){
+                   resetButtons();
+                  answerEvent(answerRight);
     }
 
     public void resume(){

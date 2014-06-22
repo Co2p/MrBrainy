@@ -7,7 +7,8 @@ import android.widget.LinearLayout;
 /**
  * Created by gordon on 11/05/14.
  *
- * Will take care of inteface elements that need a lot of code to change
+ * Will take care of inteface elements that need a lot of code to change and/or are user in several
+ * instances
  *
  */
 public class SharedInterface {
