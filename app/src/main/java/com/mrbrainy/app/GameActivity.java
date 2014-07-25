@@ -275,9 +275,9 @@ public class GameActivity extends ActionBarActivity {
     public void onAnswer(boolean isRightAnswer,ButtonHolder pHolder){
 
         if(isRightAnswer){
-            pHolder.setButtonBackground( R.drawable.bluebutton);
+            pHolder.setButtonBackground( R.drawable.button_correct);
         }else{
-            pHolder.setButtonBackground( R.drawable.greybutton);
+            pHolder.setButtonBackground( R.drawable.button_incorrect);
         }
 
         timeFunc.cancel();
