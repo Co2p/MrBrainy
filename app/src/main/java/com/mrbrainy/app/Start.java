@@ -34,7 +34,7 @@ public class Start extends ActionBarActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_about) {
-            Intent aboutIntent = new Intent(this, AboutActivity.class);
+            Intent aboutIntent = new Intent(this, About.class);
             startActivity(aboutIntent);
         }
         if (id == R.id.action_settings) {

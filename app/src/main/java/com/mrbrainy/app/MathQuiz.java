@@ -2,6 +2,8 @@ package com.mrbrainy.app;
 
 import java.util.Random;
 
+import static java.lang.Math.pow;
+
 
 public class MathQuiz {	
 	//Frågan och svaret
@@ -55,8 +57,11 @@ public class MathQuiz {
         String questionString;
         questionString=questionGen();
 
+        /**
+         * y=(20/-1,1^x)+level
+         */
         if(!(level==mode.getMode())) {
-            difficulty = difficulty/2 + difficulty;
+            difficulty = (int) (((difficulty/2)/ pow((int)-1.1, mode.getMode())) + difficulty);
             level=mode.getMode();
         }
         return questionString;

@@ -1,15 +1,15 @@
 package com.mrbrainy.app;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-/**
- * @author Gordon Cooper and Isidor Nygren
- * Displays info about the app
- */
-public class AboutActivity extends Activity {
+import com.mrbrainy.app.R;
+
+public class About extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

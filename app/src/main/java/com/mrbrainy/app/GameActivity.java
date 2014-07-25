@@ -250,7 +250,7 @@ public class GameActivity extends ActionBarActivity {
 
         //Changes the background depending on the level
         if (currentLevel != quiz.getMode().level){
-            SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
+            //SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
         }
 
         newQuestion();
@@ -270,6 +270,8 @@ public class GameActivity extends ActionBarActivity {
         Intent intent = new Intent(this, PausedActivity.class);
         startActivity(intent);
     }
+
+
     public void onAnswer(boolean isRightAnswer,ButtonHolder pHolder){
 
         if(isRightAnswer){

@@ -1,5 +1,8 @@
 package com.mrbrainy.app;
 
+/**
+ * Defines when the difficulty should be increased.
+ */
 public class Mode {
 	//Difficuly
 	private int progress = 0;

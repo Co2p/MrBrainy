@@ -3,23 +3,7 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/relativeLayout"
-    android:background="@drawable/bglevel1"
+    android:background="@color/blue"
     style="@style/AppTheme">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:tileMode="repeat"
-        android:id="@+id/linearLayout"
-        android:layout_margin="48dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/Score"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
 </RelativeLayout>
