@@ -13,57 +13,45 @@ import android.widget.LinearLayout;
  */
 public class SharedInterface {
 
-    public static void setBackground(int caseNr, LinearLayout layout, Resources resources){
-        Drawable drawable;
+    private static int caseNr=0;
 
+    public static void updateBackground(){
+        caseNr++;
+        if (caseNr>5){
+            caseNr=0;
+        }
+    }
+
+    public static void getBackground(LinearLayout layout, Resources resources){
+        Drawable drawable;
 
         switch (caseNr){
 
             case 1:
-                drawable = resources.getDrawable(R.drawable.bglevel1);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.purple));
                 break;
 
             case 2:
-                drawable = resources.getDrawable(R.drawable.bglevel2);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.pink));
                 break;
 
 
             case 3:
-                drawable = resources.getDrawable(R.drawable.bglevel3);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.orange));
                 break;
 
 
             case 4:
-                drawable = resources.getDrawable(R.drawable.bglevel4);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.yellow));
                 break;
 
             case 5:
-                drawable = resources.getDrawable(R.drawable.bglevel5);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.green));
                 break;
 
-            case 6:
-                drawable = resources.getDrawable(R.drawable.bglevel6);
-                layout.setBackground(drawable);
-                break;
-
-            case 7:
-                drawable = resources.getDrawable(R.drawable.bglevel7);
-                layout.setBackground(drawable);
-                break;
-
-            case 8:
-                drawable = resources.getDrawable(R.drawable.bglevel8);
-                layout.setBackground(drawable);
-                break;
 
             default:
-                drawable = resources.getDrawable(R.drawable.bglevel9);
-                layout.setBackground(drawable);
+                layout.setBackgroundColor(resources.getColor(R.color.blue));
                 break;
         }
     }

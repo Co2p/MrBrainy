@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.mrbrainy.app.BrainGame"
-    style="@style/FullBleed"
+    style="@style/StartStyle"
     android:longClickable="false"
     android:id="@+id/relativeLayout"
     android:gravity="top">
@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/bglevel1"
+        android:background="@color/blue"
         android:tileMode="repeat"
         android:id="@+id/linearLayout"
         android:weightSum="1">
@@ -29,7 +29,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/questionNumber"
                 android:layout_marginTop="20dp"
-                android:textColor="#99000000"
+                android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
                 android:text="Q nr placeholder" />
 
@@ -40,7 +40,7 @@
                 android:id="@+id/question"
                 android:layout_marginTop="8dp"
                 android:textSize="30sp"
-                android:textColor="#ff000000"
+                android:textColor="@color/black"
                 android:singleLine="false"
                 android:layout_gravity="center_horizontal"
                 android:text="Q" />
@@ -66,13 +66,13 @@
                         android:id="@+id/a1"
                         android:onClick="button1"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/redbutton" />
+                        android:background="@drawable/button" />
 
                     <Button
                         android:id="@+id/a2"
                         android:onClick="button2"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/yellowbutton" />
+                        android:background="@drawable/button" />
 
                     </LinearLayout>
 
@@ -85,13 +85,13 @@
                         android:id="@+id/a3"
                         android:onClick="button3"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/bluebutton" />
+                        android:background="@drawable/button" />
 
                     <Button
                         android:id="@+id/a4"
                         android:onClick="button4"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/cyanbutton" />
+                        android:background="@drawable/button" />
 
                 </LinearLayout>
 
@@ -105,13 +105,13 @@
                         android:id="@+id/a5"
                         android:onClick="button5"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/greenbutton" />
+                        android:background="@drawable/button" />
 
                     <Button
                         android:id="@+id/a6"
                         android:onClick="button6"
                         style="@style/AnswerButtons"
-                        android:background="@drawable/pinkbutton"/>
+                        android:background="@drawable/button"/>
 
                 </LinearLayout>
 
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/level"
-        android:textColor="#d0000000"
+        android:textColor="@color/black_overlay"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="2dp"
         android:text="Level nr"
@@ -147,7 +147,7 @@
         android:id="@+id/progressBar"
         android:layout_gravity="center_horizontal"
         android:animationResolution="@android:integer/config_mediumAnimTime"
-        android:background="#ff000000"
+        android:background="@color/black_overlay"
         android:layout_alignParentBottom="true"
 
         android:clickable="false" />

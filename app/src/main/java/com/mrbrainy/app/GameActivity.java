@@ -250,7 +250,8 @@ public class GameActivity extends ActionBarActivity {
 
         //Changes the background depending on the level
         if (currentLevel != quiz.getMode().level){
-            //SharedInterface.setBackground(quiz.getMode().level, linearLayout, resources);
+            SharedInterface.updateBackground();
+            SharedInterface.getBackground(linearLayout, resources);
         }
 
         newQuestion();
