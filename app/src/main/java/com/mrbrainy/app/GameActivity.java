@@ -156,7 +156,7 @@ public class GameActivity extends ActionBarActivity {
                 buttonListeners.get(index).setIsRightAnswer(true);
             }
             else {
-
+                buttonListeners.get(index).setIsRightAnswer(false);
             }
             index++;
         }
