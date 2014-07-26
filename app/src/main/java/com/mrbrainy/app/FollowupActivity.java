@@ -23,7 +23,7 @@ public class FollowupActivity extends ActionBarActivity {
         Intent intent = getIntent();
 
         int caseNr = intent.getIntExtra(GameActivity.LEVEL_INFO, -1);
-        SharedInterface.getBackground(linearLayout, resources);
+        //SharedInterface.getBackground(linearLayout, resources);
     }
 
 }

@@ -84,8 +84,6 @@ public class GameActivity extends ActionBarActivity {
      * Generates a new question and adds it to the display
      */
     protected void newQuestion(){
-        //Puts colour back on the buttons
-
 
         System.out.println("Creating question strings...");
         pageNumber++;

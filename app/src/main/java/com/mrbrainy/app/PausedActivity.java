@@ -23,7 +23,10 @@ public class PausedActivity extends ActionBarActivity {
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
 
-        SharedInterface.getBackground(linearLayout, resources);
+        /**
+         * Den här ska hämta samma bakgrundsfärg som GameActivity använder just nu, men det är något fel :(
+         */
+        //SharedInterface.getBackground(linearLayout, resources);
     }
 
     @Override
