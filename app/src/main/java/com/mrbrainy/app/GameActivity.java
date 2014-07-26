@@ -3,6 +3,7 @@ package com.mrbrainy.app;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -32,6 +33,11 @@ public class GameActivity extends ActionBarActivity {
     private Highscore score;
     CountDownTimer timeFunc;
 
+    //Sound
+    MediaPlayer music;
+    MediaPlayer correctSound;
+    MediaPlayer incorrectSound;
+
 
 
     protected ArrayList<ButtonHolder> buttonListeners = new ArrayList<ButtonHolder>();
@@ -59,13 +65,18 @@ public class GameActivity extends ActionBarActivity {
         //Creates a new timer with 20 seconds
         timer(20000);
 
+        music = MediaPlayer.create(this, R.raw.music);
+        incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
+        correctSound = MediaPlayer.create(this, R.raw.correct);
+
+        music.setLooping(true);
+        music.start();
+
         score = new Highscore();
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
         progress.setMax(100);
-
-
 
         buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a1)));
         buttonListeners.add(new ButtonHolder(this,(Button)findViewById(R.id.a2)));
@@ -143,6 +154,9 @@ public class GameActivity extends ActionBarActivity {
             buttonListeners.get(index).setCaption(answer);
             if(index==realAns){
                 buttonListeners.get(index).setIsRightAnswer(true);
+            }
+            else {
+
             }
             index++;
         }
@@ -231,11 +245,12 @@ public class GameActivity extends ActionBarActivity {
 
         if (ansBool){
             System.out.println("Right");
+            correctSound.start();
             endOfGame=quiz.getMode().add();
         }
         else {
             quiz.getMode().remove();
-
+            incorrectSound.start();
             System.out.println("Wrong");
         }
 
@@ -266,6 +281,7 @@ public class GameActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         timeFunc.cancel();
+        music.stop();
         Intent intent = new Intent(this, PausedActivity.class);
         startActivity(intent);
     }
