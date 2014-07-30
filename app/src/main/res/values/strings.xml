@@ -6,23 +6,34 @@
     <string name="start">Start!</string>
     <string name="welcome">Welcome to Mr. Brainy!</string>
     <string name="title_activity_brain_game">Math Quiz</string>
-    <string name="title_activity_quiz_followup">QuizFollowup</string>
     <string name="what_is_q">What is</string>
     <string name="question_nr">Question</string>
     <string name="level">Level</string>
-    //About activity strings        <string name="title_activity_about">About</string>
+
+    <!--About activity-->
+    <string name="title_activity_about">About</string>
     <string name="cool_button">Cool Stuff!</string>
     <string name="version">Mr. Brainy v.0.1 alpha</string>
     <string name="info">Created by: \n Gordon Cooper\n and\n Isidor Nygren\n ©MrBrainy 2014</string>
-    //Game strings    <string name="title_activity_game">Math Quiz</string>
+
+    <!--Game strings-->
+    <string name="title_activity_game">Math Quiz</string>
     <string name="timer">Timer placeholder</string>
-    <string name="Score">Large Text</string>
-    //Pause menu and popup    <string name="yes">Yes</string>
+    <string name="Score">Score placeholder</string>
+
+    <!--Pause menu and popup-->
+    <string name="yes">Yes</string>
     <string name="really_quit">Are you sure you want to quit?</string>
     <string name="cancel">Cancel</string>
-    <string name="title_activity_paused">PausedActivity</string>
+    <string name="title_activity_paused">Paused</string>
     <string name="resume">Resume</string>
     <string name="main_menu">Main Menu</string>
+    <string name="current_score">Current Score: </string>
     <string name="hello_world">Hello world!</string>
+
+    <!--Followup-->
+    <string name="retry">Another!</string>
+    <string name="title_activity_quiz_followup">Final Score</string>
+    <string name="share">Show off your score!</string>
 
 </resources>
