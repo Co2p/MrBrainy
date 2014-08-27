@@ -20,13 +20,8 @@ public class PausedActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paused);
-        linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
+        linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
-
-        /**
-         * Den här ska hämta samma bakgrundsfärg som GameActivity använder just nu, men det är något fel :(
-         */
-        //SharedInterface.getBackground(linearLayout, resources);
     }
 
     @Override
