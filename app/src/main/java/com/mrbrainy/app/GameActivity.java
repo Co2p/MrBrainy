@@ -300,7 +300,13 @@ public class GameActivity extends ActionBarActivity {
                   answerEvent(answerRight);
     }
 
-    public void resume(){
+    @Override
+    protected void onPause() {
+        onBackPressed();
+    }
+
+    @Override
+    protected void onResume() {
         newQuestion();
     }
 }
