@@ -31,14 +31,12 @@ public class GameActivity extends ActionBarActivity {
     private ProgressBar progress;
     private Resources resources;
     private Highscore score;
-    CountDownTimer timeFunc;
+    private CountDownTimer timeFunc;
 
     //Sound
-    MediaPlayer music;
-    MediaPlayer correctSound;
-    MediaPlayer incorrectSound;
-
-
+    private sound sound;
+    private  MediaPlayer correctSound;
+    private  MediaPlayer incorrectSound;
 
     protected ArrayList<ButtonHolder> buttonListeners = new ArrayList<ButtonHolder>();
     //This sends stuff to QuizFollowup
@@ -65,12 +63,10 @@ public class GameActivity extends ActionBarActivity {
         //Creates a new timer with 20 seconds
         timer(20000);
 
-        music = MediaPlayer.create(this, R.raw.music);
+        sound = new sound(this);
+
         incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
         correctSound = MediaPlayer.create(this, R.raw.correct);
-
-        music.setLooping(true);
-        music.start();
 
         score = new Highscore();
         pageNumber = 0;
@@ -245,7 +241,7 @@ public class GameActivity extends ActionBarActivity {
 
         if (ansBool){
             System.out.println("Right");
-            correctSound.start();
+            sound.playCorrect();
             endOfGame=quiz.getMode().add();
         }
         else {
@@ -281,7 +277,6 @@ public class GameActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         timeFunc.cancel();
-        music.stop();
         Intent intent = new Intent(this, PausedActivity.class);
         startActivity(intent);
     }
