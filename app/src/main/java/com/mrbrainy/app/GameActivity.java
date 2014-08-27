@@ -2,12 +2,10 @@ package com.mrbrainy.app;
 
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.LinearLayout;
@@ -32,6 +30,8 @@ public class GameActivity extends ActionBarActivity {
     private Resources resources;
     private Highscore score;
     private CountDownTimer timeFunc;
+    //time
+    private long timeCount = 0;
 
     //Sound
     private sound sound;
@@ -55,6 +55,8 @@ public class GameActivity extends ActionBarActivity {
         setContentView(R.layout.activity_brain_game);
         linearLayout  = (LinearLayout) findViewById(R.id.linearLayout);
         resources = getResources();
+        //Initialize Highscore
+        score = new Highscore();
 
         //Creates a quiz object with 7 levels, a streak of 5 to level up,
         // and two mistakes to loose level.
@@ -68,7 +70,6 @@ public class GameActivity extends ActionBarActivity {
         incorrectSound = MediaPlayer.create(this, R.raw.incorrect);
         correctSound = MediaPlayer.create(this, R.raw.correct);
 
-        score = new Highscore();
         pageNumber = 0;
 
         progress = (ProgressBar) findViewById(R.id.progressBar);
@@ -176,6 +177,7 @@ public class GameActivity extends ActionBarActivity {
             //Render text everytime the timer counts down one second
             public void onTick(long mill) {
                 //qTimer.setText("tid = " + mill / 1000);
+                timeCount = mill;
                 progressStatus = ((int) mill/200);
                 progress.setProgress(progressStatus);
             }
@@ -241,6 +243,8 @@ public class GameActivity extends ActionBarActivity {
 
         if (ansBool){
             System.out.println("Right");
+            //Add score
+            score.addScore(timeCount, currentLevel);
             sound.playCorrect();
             endOfGame=quiz.getMode().add();
         }

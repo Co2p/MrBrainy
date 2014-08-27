@@ -20,7 +20,7 @@ public class sound {
     private MediaPlayer correct7;
     private MediaPlayer correct8;
     private MediaPlayer correct9;
-    private  MediaPlayer correct10;
+    private MediaPlayer correct10;
     private MediaPlayer correct11;
     private MediaPlayer correct12;
 
